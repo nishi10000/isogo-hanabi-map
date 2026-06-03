@@ -8,7 +8,13 @@
     "direction_from_isogo": "北〜北東",
     "official_url": "https://www.kaikosai.com/",
     "date_note": "例年6月2日前後。年度ごとに要確認。",
-    "status": "annual_check_required"
+    "status": "annual_check_required",
+    "schedule_label": "2026年6月2日ごろ（年度ごとに公式確認）",
+    "time_label": "夜のイベント時間帯。詳細は公式確認",
+    "schedule_confidence": "annual_pattern",
+    "source_title": "第45回横浜開港祭 公式",
+    "source_url": "https://www.kaikosai.com/",
+    "source_note": "公式サイトで年度開催情報を確認。花火/演出時間は毎年要確認。"
   },
   {
     "id": "yokohama-night-flowers",
@@ -19,7 +25,13 @@
     "direction_from_isogo": "北〜北東",
     "official_url": "https://www.yokohama-nightflowers.com/",
     "date_note": "年度内に複数日開催。打上場所・可否は公式で要確認。",
-    "status": "annual_check_required"
+    "status": "annual_check_required",
+    "schedule_label": "2026年度 年間30日程度・複数日開催",
+    "time_label": "19:00〜19:05 / 19:30〜19:35 など開催日ごとに変動",
+    "schedule_confidence": "official",
+    "source_title": "横浜ナイトフラワーズ 2026 公式",
+    "source_url": "https://www.yokohama-nightflowers.com/",
+    "source_note": "公式に「年間30日程度」「実施日時・打上げ場所は変更の場合あり」と掲載。"
   },
   {
     "id": "minatomirai-smart-festival",
@@ -30,7 +42,13 @@
     "direction_from_isogo": "北〜北東",
     "official_url": "https://www.mmsf.yokohama/",
     "date_note": "年度ごとに要確認。検索で確認した公式ドメイン mmsf.yokohama を利用。",
-    "status": "annual_check_required"
+    "status": "annual_check_required",
+    "schedule_label": "2026年8月24日（月）",
+    "time_label": "18:30〜20:00予定（音楽花火を含む）",
+    "schedule_confidence": "official",
+    "source_title": "みなとみらいフェスティバル 公式",
+    "source_url": "https://www.mmsf.yokohama/",
+    "source_note": "公式に2026年8月24日（月）18:30〜20:00予定、音と花火のプログラムと掲載。"
   },
   {
     "id": "kanazawa-hanabi",
@@ -41,6 +59,12 @@
     "direction_from_isogo": "南〜南東",
     "official_url": "https://www.city.yokohama.lg.jp/kanazawa/kurashi/kyodo_manabi/kyodo_shien/chiiki/kanazawamaturi/maturi2026/hanabi.html",
     "date_note": "例年夏〜初秋。年度ごとに要確認。",
-    "status": "annual_check_required"
+    "status": "annual_check_required",
+    "schedule_label": "2026年8月22日（土）",
+    "time_label": "19:00〜20:00 ※荒天時中止",
+    "schedule_confidence": "official",
+    "source_title": "第52回金沢まつり花火大会開催情報 - 横浜市金沢区",
+    "source_url": "https://www.city.yokohama.lg.jp/kanazawa/kurashi/kyodo_manabi/kyodo_shien/chiiki/kanazawamaturi/maturi2026/hanabi.html",
+    "source_note": "公式ページに令和8年8月22日(土)午後7時〜午後8時、約3,500発予定と掲載。"
   }
 ]

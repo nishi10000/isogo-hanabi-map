@@ -11,19 +11,30 @@
 <body>
   <header class="hero">
     <div>
-      <p class="eyebrow">Isogo Hanabi View Map / MVP</p>
+      <p class="eyebrow">Isogo Hanabi View Map</p>
       <h1>磯子周辺 花火見え方マップ</h1>
-      <p class="lead">磯子駅周辺・磯子区・杉田・岡村・滝頭・根岸周辺から、花火が見える可能性のある公開スポットを慎重に整理します。</p>
+      <p class="lead">予定日 → 見える候補地 → 根拠ソースを、スマホ1画面で確認できる検証用マップです。</p>
     </div>
-    <button id="locateBtn" class="ghost-button" type="button">現在地付近を見る</button>
+    <button id="locateBtn" class="ghost-button" type="button">現在地</button>
   </header>
 
   <section class="warning" aria-label="重要な注意">
-    <strong>重要:</strong> この地図は「候補地」の検証メモです。見えると断定しません。私有地・マンション敷地・立入禁止区域には入らず、住宅地では騒音・路上駐車・長時間滞在を避けてください。ピン精度が area / rough / private_avoid の場所は意図的に位置をぼかしています。
+    <strong>重要:</strong> この地図は「候補地」の検証メモです。見えると断定しません。私有地・マンション敷地・立入禁止区域には入らず、住宅地では騒音・路上駐車・長時間滞在を避けてください。<span class="desktop-only"> ピン精度が area / rough / private_avoid の場所は意図的に位置をぼかしています。</span>
   </section>
 
+  <nav class="mobile-tabs" aria-label="スマホ表示切替">
+    <button class="tab-btn active" data-panel="schedulePanel" type="button">予定</button>
+    <button class="tab-btn" data-panel="mapPanel" type="button">地図</button>
+    <button class="tab-btn" data-panel="spotsPanel" type="button">候補地</button>
+    <button class="tab-btn" data-panel="filtersPanel" type="button">絞込</button>
+  </nav>
+
   <main class="layout">
-    <aside class="panel" aria-label="フィルター">
+    <aside class="panel app-panel mobile-panel" id="filtersPanel" aria-label="フィルター">
+      <div class="mini-status">
+        <span><strong id="visibleCount">0</strong>/<span id="totalCount">0</span>件</span>
+        <span id="selectionSummary">全花火大会</span>
+      </div>
       <div class="panel-section">
         <h2>花火大会</h2>
         <div id="eventFilters" class="chip-list"></div>
@@ -32,23 +43,51 @@
         <h2>確度</h2>
         <div id="confidenceFilters" class="chip-list"></div>
       </div>
-      <div class="panel-section">
+      <div class="panel-section compact-form">
         <h2>子連れ条件</h2>
-        <label class="toggle"><input id="kidFriendlyOnly" type="checkbox"> 子連れ向き high/medium のみ</label>
-        <label class="toggle"><input id="strollerFriendlyOnly" type="checkbox"> ベビーカー比較的可を優先</label>
+        <label class="toggle"><input id="kidFriendlyOnly" type="checkbox"> 子連れ high/medium</label>
+        <label class="toggle"><input id="strollerFriendlyOnly" type="checkbox"> ベビーカー可を優先</label>
+        <button id="resetFilters" class="reset-button" type="button">絞り込みを解除</button>
       </div>
-      <div class="panel-section summary">
-        <h2>表示中</h2>
-        <p><span id="visibleCount">0</span> / <span id="totalCount">0</span> スポット</p>
-        <p id="selectionSummary">フィルターなし</p>
+      <div class="panel-section legend">
+        <h2>根拠ラベル</h2>
+        <p><span class="evidence-dot direct_report"></span> 直接: 花火を見た/見る企画のソース</p>
+        <p><span class="evidence-dot indirect_view_axis"></span> 間接: 夜景・眺望ソースからの候補</p>
       </div>
     </aside>
 
-    <section class="map-wrap">
-      <div id="map" role="application" aria-label="花火観覧候補地図"></div>
-      <div id="spotCards" class="cards" aria-live="polite"></div>
+    <section class="content-stack">
+      <section class="schedule-shell mobile-panel active" id="schedulePanel" aria-label="花火スケジュールと候補地">
+        <div class="section-title-row">
+          <div>
+            <h2>花火スケジュール</h2>
+            <p>予定・場所・候補スポット・ソースを1枚に集約</p>
+          </div>
+        </div>
+        <div id="scheduleList" class="schedule-list"></div>
+      </section>
+
+      <section class="map-wrap mobile-panel" id="mapPanel">
+        <div id="map" role="application" aria-label="花火観覧候補地図"></div>
+        <p class="map-hint">ピンを押すと、その場所から打上地点への方向線を表示します。</p>
+      </section>
+
+      <section class="spot-shell mobile-panel" id="spotsPanel" aria-label="観覧候補スポット一覧">
+        <div class="section-title-row">
+          <div>
+            <h2>候補スポット</h2>
+            <p>各カードで「どの花火が見える可能性か」と根拠を確認</p>
+          </div>
+        </div>
+        <div id="spotCards" class="cards" aria-live="polite"></div>
+      </section>
     </section>
   </main>
+
+  <dialog id="detailDialog" class="detail-dialog">
+    <button id="closeDialog" class="dialog-close" type="button" aria-label="閉じる">×</button>
+    <div id="detailContent"></div>
+  </dialog>
 
   <footer>
     <p>データは <code>data/spots.json</code> と <code>data/events.json</code> で管理。新情報はIssueで確認してから採用します。</p>

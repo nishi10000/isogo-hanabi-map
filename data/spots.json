@@ -7,7 +7,11 @@
     "pin_accuracy": "area",
     "category": "高台/周辺エリア",
     "confidence": "likely",
-    "visible_events": ["yokohama-kaikosai", "yokohama-night-flowers", "minatomirai-smart-festival"],
+    "visible_events": [
+      "yokohama-kaikosai",
+      "yokohama-night-flowers",
+      "minatomirai-smart-festival"
+    ],
     "view_direction": "北〜北東",
     "visibility_note": "地域イベントで横浜開港祭花火観覧の開催/レポートがあり、みなとみらい方面の高く上がる花火は見える可能性あり。低い演出・建物越しは要確認。",
     "kid_friendly": "medium",
@@ -17,11 +21,52 @@
     "access_note": "住宅地・マンション敷地に近い。公開通路/商業施設の営業時間・立入可否を必ず確認。",
     "warning": "私有地・マンション敷地内への立ち入り禁止。ピンは周辺エリアとしてぼかしています。",
     "sources": [
-      {"title": "ブリリアの丘から花火を眺めよう～横浜開港祭2017", "url": "https://isogotmc.net/ne/hanabi_kaikosai201%EF%BC%97/", "type": "local_report", "checked_at": "2026-06-03"},
-      {"title": "ブリリアシティ横浜磯子 展望台 - こよなく夜景を愛する人へ", "url": "https://yakei.jp/japan/spot.php?i=yokohama-isogo", "type": "night_view_site", "checked_at": "2026-06-03"},
-      {"title": "ヒルトップモール | Brillia City 横浜磯子 公式HP", "url": "https://www.brillia-isogo.com/area/hill_top_mall/", "type": "facility_info", "checked_at": "2026-06-03"}
+      {
+        "title": "ブリリアの丘から花火を眺めよう～横浜開港祭2017",
+        "url": "https://isogotmc.net/ne/hanabi_kaikosai201%EF%BC%97/",
+        "type": "local_report",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "ブリリアシティ横浜磯子 展望台 - こよなく夜景を愛する人へ",
+        "url": "https://yakei.jp/japan/spot.php?i=yokohama-isogo",
+        "type": "night_view_site",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "ヒルトップモール | Brillia City 横浜磯子 公式HP",
+        "url": "https://www.brillia-isogo.com/area/hill_top_mall/",
+        "type": "facility_info",
+        "checked_at": "2026-06-03"
+      }
     ],
-    "last_verified_at": null
+    "last_verified_at": null,
+    "event_evidence": {
+      "yokohama-kaikosai": {
+        "support_level": "direct_report",
+        "summary": "ブリリアの丘から横浜開港祭花火を眺める趣旨の地域レポート。",
+        "source_title": "ブリリアの丘から花火を眺めよう～横浜開港祭2017",
+        "source_url": "https://isogotmc.net/ne/hanabi_kaikosai201%EF%BC%97/",
+        "source_type": "local_report",
+        "note": "地域レポートで横浜開港祭の花火観覧企画/記録があるため、有力扱い。"
+      },
+      "yokohama-night-flowers": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "ブリリアの丘から花火を眺めよう～横浜開港祭2017",
+        "source_url": "https://isogotmc.net/ne/hanabi_kaikosai201%EF%BC%97/",
+        "source_type": "local_report",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "minatomirai-smart-festival": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "ブリリアの丘から花火を眺めよう～横浜開港祭2017",
+        "source_url": "https://isogotmc.net/ne/hanabi_kaikosai201%EF%BC%97/",
+        "source_type": "local_report",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    }
   },
   {
     "id": "hilltop-mall-isogo-area",
@@ -31,7 +76,11 @@
     "pin_accuracy": "area",
     "category": "商業施設周辺/高台",
     "confidence": "possible",
-    "visible_events": ["yokohama-kaikosai", "yokohama-night-flowers", "minatomirai-smart-festival"],
+    "visible_events": [
+      "yokohama-kaikosai",
+      "yokohama-night-flowers",
+      "minatomirai-smart-festival"
+    ],
     "view_direction": "北〜北東",
     "visibility_note": "夜景スポット情報から眺望は期待できるが、花火視認は現地確認が必要。施設・通路からの視界、営業時間、滞留可否を要確認。",
     "kid_friendly": "medium",
@@ -41,10 +90,46 @@
     "access_note": "商業施設/周辺通路。迷惑滞在・撮影三脚・騒音を避ける。",
     "warning": "私有地/商業施設管理区域のルールを優先。正確な観覧位置は表示しません。",
     "sources": [
-      {"title": "ヒルトップモール - こよなく夜景を愛する人へ", "url": "https://yakei.jp/japan/spot.php?i=hill-top", "type": "night_view_site", "checked_at": "2026-06-03"},
-      {"title": "ヒルトップモール | Brillia City 横浜磯子 公式HP", "url": "https://www.brillia-isogo.com/area/hill_top_mall/", "type": "facility_info", "checked_at": "2026-06-03"}
+      {
+        "title": "ヒルトップモール - こよなく夜景を愛する人へ",
+        "url": "https://yakei.jp/japan/spot.php?i=hill-top",
+        "type": "night_view_site",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "ヒルトップモール | Brillia City 横浜磯子 公式HP",
+        "url": "https://www.brillia-isogo.com/area/hill_top_mall/",
+        "type": "facility_info",
+        "checked_at": "2026-06-03"
+      }
     ],
-    "last_verified_at": null
+    "last_verified_at": null,
+    "event_evidence": {
+      "yokohama-kaikosai": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "ヒルトップモール - こよなく夜景を愛する人へ",
+        "source_url": "https://yakei.jp/japan/spot.php?i=hill-top",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "yokohama-night-flowers": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "ヒルトップモール - こよなく夜景を愛する人へ",
+        "source_url": "https://yakei.jp/japan/spot.php?i=hill-top",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "minatomirai-smart-festival": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "ヒルトップモール - こよなく夜景を愛する人へ",
+        "source_url": "https://yakei.jp/japan/spot.php?i=hill-top",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    }
   },
   {
     "id": "okamura-3-4-park",
@@ -54,7 +139,11 @@
     "pin_accuracy": "exact",
     "category": "公園/高台",
     "confidence": "possible",
-    "visible_events": ["yokohama-kaikosai", "yokohama-night-flowers", "minatomirai-smart-festival"],
+    "visible_events": [
+      "yokohama-kaikosai",
+      "yokohama-night-flowers",
+      "minatomirai-smart-festival"
+    ],
     "view_direction": "北東〜東",
     "visibility_note": "磯子区の夜景スポットとして紹介あり。北東方面の高く上がる花火は見える可能性があるが、花火実績は要検証。",
     "kid_friendly": "medium",
@@ -64,10 +153,46 @@
     "access_note": "住宅地内の小公園。夜間の会話音・ライト・長時間滞在に注意。",
     "warning": "住宅地のため静かに短時間利用。周辺道路や民家前に滞留しない。",
     "sources": [
-      {"title": "神奈川県横浜市磯子区の夜景 (岡村三丁目第四公園)", "url": "https://yakei.jp/japan/spot.php?i=takigashira", "type": "night_view_site", "checked_at": "2026-06-03"},
-      {"title": "岡村三丁目第四公園 - Let’s ENJOY TOKYO", "url": "https://www.enjoytokyo.jp/spot/l_20084131/", "type": "place_info", "checked_at": "2026-06-03"}
+      {
+        "title": "神奈川県横浜市磯子区の夜景 (岡村三丁目第四公園)",
+        "url": "https://yakei.jp/japan/spot.php?i=takigashira",
+        "type": "night_view_site",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "岡村三丁目第四公園 - Let’s ENJOY TOKYO",
+        "url": "https://www.enjoytokyo.jp/spot/l_20084131/",
+        "type": "place_info",
+        "checked_at": "2026-06-03"
+      }
     ],
-    "last_verified_at": null
+    "last_verified_at": null,
+    "event_evidence": {
+      "yokohama-kaikosai": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "神奈川県横浜市磯子区の夜景 (岡村三丁目第四公園)",
+        "source_url": "https://yakei.jp/japan/spot.php?i=takigashira",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "yokohama-night-flowers": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "神奈川県横浜市磯子区の夜景 (岡村三丁目第四公園)",
+        "source_url": "https://yakei.jp/japan/spot.php?i=takigashira",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "minatomirai-smart-festival": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "神奈川県横浜市磯子区の夜景 (岡村三丁目第四公園)",
+        "source_url": "https://yakei.jp/japan/spot.php?i=takigashira",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    }
   },
   {
     "id": "mori-miharashi-park",
@@ -77,7 +202,11 @@
     "pin_accuracy": "exact",
     "category": "公園/高台",
     "confidence": "possible",
-    "visible_events": ["yokohama-kaikosai", "yokohama-night-flowers", "minatomirai-smart-festival"],
+    "visible_events": [
+      "yokohama-kaikosai",
+      "yokohama-night-flowers",
+      "minatomirai-smart-festival"
+    ],
     "view_direction": "北〜北東",
     "visibility_note": "夜景スポットとして紹介あり。名称通り見晴らしはあるが、みなとみらい方面花火の視界は現地確認が必要。",
     "kid_friendly": "medium",
@@ -87,11 +216,52 @@
     "access_note": "住宅地に近い公園。夜間安全と騒音に注意。",
     "warning": "住宅地周辺のため正確な居座りスポット化を避け、短時間利用に留める。",
     "sources": [
-      {"title": "森みはらし公園 - 横浜市磯子区の夜景", "url": "https://yakei.jp/japan/spot.php?i=morinomiharashi", "type": "night_view_site", "checked_at": "2026-06-03"},
-      {"title": "森みはらし公園付近の夜景 - 夜景INFO", "url": "https://nightview.info/detail/map/mori_park/", "type": "night_view_site", "checked_at": "2026-06-03"},
-      {"title": "OpenStreetMap/Nominatim geocoding", "url": "https://www.openstreetmap.org/way/155590725", "type": "map_data", "checked_at": "2026-06-03"}
+      {
+        "title": "森みはらし公園 - 横浜市磯子区の夜景",
+        "url": "https://yakei.jp/japan/spot.php?i=morinomiharashi",
+        "type": "night_view_site",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "森みはらし公園付近の夜景 - 夜景INFO",
+        "url": "https://nightview.info/detail/map/mori_park/",
+        "type": "night_view_site",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "OpenStreetMap/Nominatim geocoding",
+        "url": "https://www.openstreetmap.org/way/155590725",
+        "type": "map_data",
+        "checked_at": "2026-06-03"
+      }
     ],
-    "last_verified_at": null
+    "last_verified_at": null,
+    "event_evidence": {
+      "yokohama-kaikosai": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "森みはらし公園 - 横浜市磯子区の夜景",
+        "source_url": "https://yakei.jp/japan/spot.php?i=morinomiharashi",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "yokohama-night-flowers": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "森みはらし公園 - 横浜市磯子区の夜景",
+        "source_url": "https://yakei.jp/japan/spot.php?i=morinomiharashi",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "minatomirai-smart-festival": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "森みはらし公園 - 横浜市磯子区の夜景",
+        "source_url": "https://yakei.jp/japan/spot.php?i=morinomiharashi",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    }
   },
   {
     "id": "sugita-rinkai-ryokuchi",
@@ -101,7 +271,9 @@
     "pin_accuracy": "exact",
     "category": "臨海緑地/水辺",
     "confidence": "possible",
-    "visible_events": ["kanazawa-hanabi"],
+    "visible_events": [
+      "kanazawa-hanabi"
+    ],
     "view_direction": "南〜南東",
     "visibility_note": "工場夜景・海沿いの眺望スポット。金沢方面の高く上がる花火が見える可能性はあるが、距離・遮蔽物・安全面を要検証。",
     "kid_friendly": "medium",
@@ -111,11 +283,36 @@
     "access_note": "夜間は暗い場所や車両動線に注意。釣り客・作業エリアの邪魔をしない。",
     "warning": "港湾/工業地帯に近い。立入禁止区域・駐停車違反を避ける。",
     "sources": [
-      {"title": "杉田臨海緑地 - 横浜市磯子区の夜景", "url": "https://yakei.jp/japan/spot.php?i=sugita", "type": "night_view_site", "checked_at": "2026-06-03"},
-      {"title": "杉田臨海緑地 - 夜景INFO", "url": "https://www.nightview.info/detail/sugitarinkai_park/", "type": "night_view_site", "checked_at": "2026-06-03"},
-      {"title": "OpenStreetMap/Nominatim geocoding", "url": "https://www.openstreetmap.org/way/249320866", "type": "map_data", "checked_at": "2026-06-03"}
+      {
+        "title": "杉田臨海緑地 - 横浜市磯子区の夜景",
+        "url": "https://yakei.jp/japan/spot.php?i=sugita",
+        "type": "night_view_site",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "杉田臨海緑地 - 夜景INFO",
+        "url": "https://www.nightview.info/detail/sugitarinkai_park/",
+        "type": "night_view_site",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "OpenStreetMap/Nominatim geocoding",
+        "url": "https://www.openstreetmap.org/way/249320866",
+        "type": "map_data",
+        "checked_at": "2026-06-03"
+      }
     ],
-    "last_verified_at": null
+    "last_verified_at": null,
+    "event_evidence": {
+      "kanazawa-hanabi": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "杉田臨海緑地 - 横浜市磯子区の夜景",
+        "source_url": "https://yakei.jp/japan/spot.php?i=sugita",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    }
   },
   {
     "id": "isogo-umi-no-mieru-park",
@@ -125,7 +322,11 @@
     "pin_accuracy": "exact",
     "category": "公園/海沿い",
     "confidence": "possible",
-    "visible_events": ["kanazawa-hanabi", "yokohama-kaikosai", "yokohama-night-flowers"],
+    "visible_events": [
+      "kanazawa-hanabi",
+      "yokohama-kaikosai",
+      "yokohama-night-flowers"
+    ],
     "view_direction": "南〜南東 / 北〜北東",
     "visibility_note": "海が見える公園として紹介あり。花火視認は方向・建物・工場設備の遮蔽確認が必要。まずはpossible扱い。",
     "kid_friendly": "high",
@@ -135,11 +336,52 @@
     "access_note": "公園利用ルールを守り、夜間の安全確認を優先。",
     "warning": "見えると断定しない。岸壁や危険箇所へ近づかない。",
     "sources": [
-      {"title": "磯子・海の見える公園 - 横浜市PDF", "url": "https://www.city.yokohama.lg.jp/isogo/kurashi/machizukuri_kankyo/jimusho/koen-shokai/20120312112747.files/0001_20181120.pdf", "type": "official_place_info", "checked_at": "2026-06-03"},
-      {"title": "磯子・海の見える公園 - 磯子区.jp", "url": "https://isogo-ku.jp/area_list/facilities/6570", "type": "place_info", "checked_at": "2026-06-03"},
-      {"title": "OpenStreetMap/Nominatim geocoding", "url": "https://www.openstreetmap.org/way/312555567", "type": "map_data", "checked_at": "2026-06-03"}
+      {
+        "title": "磯子・海の見える公園 - 横浜市PDF",
+        "url": "https://www.city.yokohama.lg.jp/isogo/kurashi/machizukuri_kankyo/jimusho/koen-shokai/20120312112747.files/0001_20181120.pdf",
+        "type": "official_place_info",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "磯子・海の見える公園 - 磯子区.jp",
+        "url": "https://isogo-ku.jp/area_list/facilities/6570",
+        "type": "place_info",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "OpenStreetMap/Nominatim geocoding",
+        "url": "https://www.openstreetmap.org/way/312555567",
+        "type": "map_data",
+        "checked_at": "2026-06-03"
+      }
     ],
-    "last_verified_at": null
+    "last_verified_at": null,
+    "event_evidence": {
+      "kanazawa-hanabi": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "磯子・海の見える公園 - 横浜市PDF",
+        "source_url": "https://www.city.yokohama.lg.jp/isogo/kurashi/machizukuri_kankyo/jimusho/koen-shokai/20120312112747.files/0001_20181120.pdf",
+        "source_type": "official_place_info",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "yokohama-kaikosai": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "磯子・海の見える公園 - 横浜市PDF",
+        "source_url": "https://www.city.yokohama.lg.jp/isogo/kurashi/machizukuri_kankyo/jimusho/koen-shokai/20120312112747.files/0001_20181120.pdf",
+        "source_type": "official_place_info",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "yokohama-night-flowers": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "磯子・海の見える公園 - 横浜市PDF",
+        "source_url": "https://www.city.yokohama.lg.jp/isogo/kurashi/machizukuri_kankyo/jimusho/koen-shokai/20120312112747.files/0001_20181120.pdf",
+        "source_type": "official_place_info",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    }
   },
   {
     "id": "takigashira-3-park",
@@ -149,7 +391,11 @@
     "pin_accuracy": "exact",
     "category": "公園/高台",
     "confidence": "possible",
-    "visible_events": ["yokohama-kaikosai", "yokohama-night-flowers", "minatomirai-smart-festival"],
+    "visible_events": [
+      "yokohama-kaikosai",
+      "yokohama-night-flowers",
+      "minatomirai-smart-festival"
+    ],
     "view_direction": "北東〜東",
     "visibility_note": "夜景スポットとして紹介あり。みなとみらい方面の高く上がる花火は可能性があるが、花火視認の直接ソースは未確認。",
     "kid_friendly": "medium",
@@ -159,11 +405,52 @@
     "access_note": "住宅地に近い。夜間利用・騒音・ライトに注意。",
     "warning": "住宅地での長時間滞在や路上駐車を避ける。",
     "sources": [
-      {"title": "滝頭第三公園 - 夜景INFO", "url": "https://www.nightview.info/detail/takigashira_park/", "type": "night_view_site", "checked_at": "2026-06-03"},
-      {"title": "滝頭第三公園 - 横浜市 pamatoco", "url": "https://pamatoco.city.yokohama.lg.jp/ctz/facility/a08J4000000vpsBIAQ/%E6%BB%9D%E9%A0%AD%E7%AC%AC%E4%B8%89%E5%85%AC%E5%9C%92", "type": "official_place_info", "checked_at": "2026-06-03"},
-      {"title": "OpenStreetMap/Nominatim geocoding", "url": "https://www.openstreetmap.org/way/311731032", "type": "map_data", "checked_at": "2026-06-03"}
+      {
+        "title": "滝頭第三公園 - 夜景INFO",
+        "url": "https://www.nightview.info/detail/takigashira_park/",
+        "type": "night_view_site",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "滝頭第三公園 - 横浜市 pamatoco",
+        "url": "https://pamatoco.city.yokohama.lg.jp/ctz/facility/a08J4000000vpsBIAQ/%E6%BB%9D%E9%A0%AD%E7%AC%AC%E4%B8%89%E5%85%AC%E5%9C%92",
+        "type": "official_place_info",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "OpenStreetMap/Nominatim geocoding",
+        "url": "https://www.openstreetmap.org/way/311731032",
+        "type": "map_data",
+        "checked_at": "2026-06-03"
+      }
     ],
-    "last_verified_at": null
+    "last_verified_at": null,
+    "event_evidence": {
+      "yokohama-kaikosai": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "滝頭第三公園 - 夜景INFO",
+        "source_url": "https://www.nightview.info/detail/takigashira_park/",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "yokohama-night-flowers": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "滝頭第三公園 - 夜景INFO",
+        "source_url": "https://www.nightview.info/detail/takigashira_park/",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "minatomirai-smart-festival": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "滝頭第三公園 - 夜景INFO",
+        "source_url": "https://www.nightview.info/detail/takigashira_park/",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    }
   },
   {
     "id": "okamura-park",
@@ -173,7 +460,11 @@
     "pin_accuracy": "exact",
     "category": "公園/高台",
     "confidence": "possible",
-    "visible_events": ["yokohama-kaikosai", "yokohama-night-flowers", "minatomirai-smart-festival"],
+    "visible_events": [
+      "yokohama-kaikosai",
+      "yokohama-night-flowers",
+      "minatomirai-smart-festival"
+    ],
     "view_direction": "北東〜東",
     "visibility_note": "夜景スポット情報あり。公園として利用しやすいが、花火の視界は樹木・地形の現地確認が必要。",
     "kid_friendly": "high",
@@ -183,11 +474,52 @@
     "access_note": "公園管理ルールを守る。夜間は暗所・虫・足元に注意。",
     "warning": "周辺住宅地での騒音・路上駐車は禁止。",
     "sources": [
-      {"title": "岡村公園について - 神奈川公園協会", "url": "https://www.kanagawaparks.com/okamura/about.html", "type": "official_place_info", "checked_at": "2026-06-03"},
-      {"title": "岡村公園 - 夜景INFO", "url": "https://www.nightview.info/detail/okamura_park/", "type": "night_view_site", "checked_at": "2026-06-03"},
-      {"title": "OpenStreetMap/Nominatim geocoding", "url": "https://www.openstreetmap.org/way/28552287", "type": "map_data", "checked_at": "2026-06-03"}
+      {
+        "title": "岡村公園について - 神奈川公園協会",
+        "url": "https://www.kanagawaparks.com/okamura/about.html",
+        "type": "official_place_info",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "岡村公園 - 夜景INFO",
+        "url": "https://www.nightview.info/detail/okamura_park/",
+        "type": "night_view_site",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "OpenStreetMap/Nominatim geocoding",
+        "url": "https://www.openstreetmap.org/way/28552287",
+        "type": "map_data",
+        "checked_at": "2026-06-03"
+      }
     ],
-    "last_verified_at": null
+    "last_verified_at": null,
+    "event_evidence": {
+      "yokohama-kaikosai": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "岡村公園について - 神奈川公園協会",
+        "source_url": "https://www.kanagawaparks.com/okamura/about.html",
+        "source_type": "official_place_info",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "yokohama-night-flowers": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "岡村公園について - 神奈川公園協会",
+        "source_url": "https://www.kanagawaparks.com/okamura/about.html",
+        "source_type": "official_place_info",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "minatomirai-smart-festival": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "岡村公園について - 神奈川公園協会",
+        "source_url": "https://www.kanagawaparks.com/okamura/about.html",
+        "source_type": "official_place_info",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    }
   },
   {
     "id": "shin-isogo-negishi-bay-area",
@@ -197,7 +529,11 @@
     "pin_accuracy": "rough",
     "category": "湾岸/工場夜景",
     "confidence": "possible",
-    "visible_events": ["kanazawa-hanabi", "yokohama-kaikosai", "yokohama-night-flowers"],
+    "visible_events": [
+      "kanazawa-hanabi",
+      "yokohama-kaikosai",
+      "yokohama-night-flowers"
+    ],
     "view_direction": "南〜南東 / 北〜北東",
     "visibility_note": "根岸湾・新磯子の工場夜景スポット情報あり。花火は方向と遮蔽物に左右されるため、候補エリアとしてのみ扱う。",
     "kid_friendly": "low",
@@ -207,10 +543,46 @@
     "access_note": "港湾/工業地帯。歩道の有無、夜間照明、車両動線を事前確認。",
     "warning": "立入禁止・私有地・岸壁・作業区域には入らない。ピンは粗く表示。",
     "sources": [
-      {"title": "新磯子 工場夜景 - 首都高", "url": "https://www.shutoko.jp/ss/shutokodeikou/special/yakei/spots/p011.html", "type": "night_view_site", "checked_at": "2026-06-03"},
-      {"title": "新磯子町の夜景 - こよなく夜景を愛する人へ", "url": "https://yakei.jp/japan/spot.php?i=shin_isogo", "type": "night_view_site", "checked_at": "2026-06-03"}
+      {
+        "title": "新磯子 工場夜景 - 首都高",
+        "url": "https://www.shutoko.jp/ss/shutokodeikou/special/yakei/spots/p011.html",
+        "type": "night_view_site",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "新磯子町の夜景 - こよなく夜景を愛する人へ",
+        "url": "https://yakei.jp/japan/spot.php?i=shin_isogo",
+        "type": "night_view_site",
+        "checked_at": "2026-06-03"
+      }
     ],
-    "last_verified_at": null
+    "last_verified_at": null,
+    "event_evidence": {
+      "kanazawa-hanabi": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "新磯子 工場夜景 - 首都高",
+        "source_url": "https://www.shutoko.jp/ss/shutokodeikou/special/yakei/spots/p011.html",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "yokohama-kaikosai": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "新磯子 工場夜景 - 首都高",
+        "source_url": "https://www.shutoko.jp/ss/shutokodeikou/special/yakei/spots/p011.html",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      },
+      "yokohama-night-flowers": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "新磯子 工場夜景 - 首都高",
+        "source_url": "https://www.shutoko.jp/ss/shutokodeikou/special/yakei/spots/p011.html",
+        "source_type": "night_view_site",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    }
   },
   {
     "id": "yokodai-kita-park",
@@ -220,7 +592,9 @@
     "pin_accuracy": "exact",
     "category": "公園/内陸高台",
     "confidence": "possible",
-    "visible_events": ["kanazawa-hanabi"],
+    "visible_events": [
+      "kanazawa-hanabi"
+    ],
     "view_direction": "南東〜東",
     "visibility_note": "金沢方面との距離は比較的近いが、樹木・住宅地・高低差で視界が遮られる可能性が高く、現地検証前提。",
     "kid_friendly": "high",
@@ -230,9 +604,29 @@
     "access_note": "住宅地内公園。夜間は暗所・騒音に注意。",
     "warning": "花火観覧実績は未確認。住宅地トラブル防止のためpossibleのまま扱う。",
     "sources": [
-      {"title": "洋光台北公園 - 磯子区.jp", "url": "https://isogo-ku.jp/area_list/facilities/6502", "type": "place_info", "checked_at": "2026-06-03"},
-      {"title": "OpenStreetMap/Nominatim geocoding", "url": "https://www.openstreetmap.org/way/504786405", "type": "map_data", "checked_at": "2026-06-03"}
+      {
+        "title": "洋光台北公園 - 磯子区.jp",
+        "url": "https://isogo-ku.jp/area_list/facilities/6502",
+        "type": "place_info",
+        "checked_at": "2026-06-03"
+      },
+      {
+        "title": "OpenStreetMap/Nominatim geocoding",
+        "url": "https://www.openstreetmap.org/way/504786405",
+        "type": "map_data",
+        "checked_at": "2026-06-03"
+      }
     ],
-    "last_verified_at": null
+    "last_verified_at": null,
+    "event_evidence": {
+      "kanazawa-hanabi": {
+        "support_level": "indirect_view_axis",
+        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
+        "source_title": "洋光台北公園 - 磯子区.jp",
+        "source_url": "https://isogo-ku.jp/area_list/facilities/6502",
+        "source_type": "place_info",
+        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    }
   }
 ]

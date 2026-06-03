@@ -1,0 +1,30 @@
+name: Scheduled research issue
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 通常期の月1チェック。5〜8月は手動で週次Issueを追加するか、cronを増やす。
+    - cron: '0 0 1 * *'
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  open-research-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create research issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          today=$(date -u +%F)
+          if gh issue list --label scheduled-research --state open --json title --jq '.[].title' | grep -q "定期調査 $today"; then
+            echo "Issue already exists"
+            exit 0
+          fi
+          gh issue create \
+            --title "定期調査 $today: 磯子周辺 花火観覧候補" \
+            --label "scheduled-research,research" \
+            --body-file research/research-prompt.md

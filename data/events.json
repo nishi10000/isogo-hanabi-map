@@ -1,0 +1,46 @@
+[
+  {
+    "id": "yokohama-kaikosai",
+    "name": "横浜開港祭 花火",
+    "area": "みなとみらい・臨港パーク周辺",
+    "launch_lat": 35.458,
+    "launch_lng": 139.637,
+    "direction_from_isogo": "北〜北東",
+    "official_url": "https://www.kaikosai.com/",
+    "date_note": "例年6月2日前後。年度ごとに要確認。",
+    "status": "annual_check_required"
+  },
+  {
+    "id": "yokohama-night-flowers",
+    "name": "横浜ナイトフラワーズ",
+    "area": "横浜港・新港ふ頭/大さん橋周辺など（開催日ごとに変動）",
+    "launch_lat": 35.453,
+    "launch_lng": 139.646,
+    "direction_from_isogo": "北〜北東",
+    "official_url": "https://www.yokohama-nightflowers.com/",
+    "date_note": "年度内に複数日開催。打上場所・可否は公式で要確認。",
+    "status": "annual_check_required"
+  },
+  {
+    "id": "minatomirai-smart-festival",
+    "name": "みなとみらいスマートフェスティバル系 花火",
+    "area": "みなとみらい21地区・臨港パーク/耐震バース周辺",
+    "launch_lat": 35.461,
+    "launch_lng": 139.642,
+    "direction_from_isogo": "北〜北東",
+    "official_url": "https://www.mmsf.yokohama/",
+    "date_note": "年度ごとに要確認。検索で確認した公式ドメイン mmsf.yokohama を利用。",
+    "status": "annual_check_required"
+  },
+  {
+    "id": "kanazawa-hanabi",
+    "name": "金沢まつり花火大会",
+    "area": "海の公園周辺",
+    "launch_lat": 35.342,
+    "launch_lng": 139.637,
+    "direction_from_isogo": "南〜南東",
+    "official_url": "https://www.city.yokohama.lg.jp/kanazawa/kurashi/kyodo_manabi/kyodo_shien/chiiki/kanazawamaturi/maturi2026/hanabi.html",
+    "date_note": "例年夏〜初秋。年度ごとに要確認。",
+    "status": "annual_check_required"
+  }
+]

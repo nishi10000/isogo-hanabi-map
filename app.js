@@ -1,6 +1,9 @@
 const confidenceLabels={confirmed:'確認済み',likely:'有力',possible:'要検証'};
 const accuracyLabels={exact:'ピンポイント',area:'周辺表示',rough:'粗い位置',private_avoid:'非公開/ぼかし'};
 const supportLabels={direct_report:'直接ソース',indirect_view_axis:'眺望ソース'};
+const ISOGO_STATION=[35.3997,139.6177];
+const ISOGO_VIEW_ZOOM=14;
+const MAP_BOUNDS=L.latLngBounds([35.31,139.55],[35.48,139.69]);
 let map,spots=[],events=[],markers=L.layerGroup(),lines=L.layerGroup();
 let selectedEvents=new Set(),selectedConfidence=new Set(['confirmed','likely','possible']);
 
@@ -24,6 +27,36 @@ function matches(spot){
 }
 function supportClass(ev){return ev?.support_level||'indirect_view_axis'}
 function supportLabel(ev){return supportLabels[supportClass(ev)]||'根拠'}
+function todayStart(){const d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
+function formatDateJa(d){return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`}
+function parseJapaneseDate(label){
+  const m=String(label||'').match(/(20\d{2})年\s*(\d{1,2})月\s*(\d{1,2})日/);
+  if(!m)return null;
+  return new Date(Number(m[1]),Number(m[2])-1,Number(m[3]));
+}
+function eventDateBase(ev){return parseJapaneseDate(ev.next_date||ev.schedule_label||ev.date_note)}
+function eventTiming(ev,base=todayStart()){
+  const baseDate=eventDateBase(ev);
+  if(!baseDate)return {group:1,days:9999,label:'日程要確認',date:null};
+  const d=new Date(baseDate);
+  if(d<base){
+    const next=new Date(base.getFullYear()+1,d.getMonth(),d.getDate());
+    return {group:2,days:Math.round((next-base)/86400000),label:`次回目安: ${formatDateJa(next)}ごろ`,date:next,past:true};
+  }
+  const days=Math.round((d-base)/86400000);
+  return {group:0,days,label:days===0?'今日開催予定':days===1?'明日開催予定':`${days}日後`,date:d};
+}
+function sortEventsByToday(list){
+  const base=todayStart();
+  return [...list].sort((a,b)=>{
+    const aa=eventTiming(a,base),bb=eventTiming(b,base);
+    return aa.group-bb.group||aa.days-bb.days||a.name.localeCompare(b.name,'ja');
+  });
+}
+function resetMapToIsogo(){
+  if(!map)return;
+  map.setView(ISOGO_STATION,ISOGO_VIEW_ZOOM,{animate:false});
+}
 function bestEvidenceHtml(spot){
   const ids=selectedEvents.size?[...selectedEvents]:spot.visible_events;
   return ids.filter(id=>spot.visible_events.includes(id)).map(id=>{
@@ -53,7 +86,10 @@ function cardHtml(spot){
 }
 function renderSchedule(){
   const wrap=document.getElementById('scheduleList'); wrap.innerHTML='';
-  events.forEach(ev=>{
+  const today=todayStart();
+  wrap.insertAdjacentHTML('beforeend',`<p class="today-note">今日: <strong>${escapeHtml(formatDateJa(today))}</strong>。日付が近い花火を上から表示しています。</p>`);
+  events.forEach((ev,index)=>{
+    const timing=eventTiming(ev,today);
     const candidates=eventSpots(ev.id);
     const chips=candidates.map(s=>{
       const e=evidenceFor(s,ev.id);
@@ -61,11 +97,12 @@ function renderSchedule(){
     }).join('')||'<p class="muted">条件に合う候補地なし</p>';
     const direct=candidates.filter(s=>supportClass(evidenceFor(s,ev.id))==='direct_report').length;
     const indirect=candidates.length-direct;
-    wrap.insertAdjacentHTML('beforeend',`<article class="schedule-card ${selectedEvents.has(ev.id)?'selected':''}">
+    wrap.insertAdjacentHTML('beforeend',`<article class="schedule-card ${selectedEvents.has(ev.id)?'selected':''} ${index===0?'next-event':''}">
       <button class="schedule-head" type="button" onclick="toggleEvent('${escapeHtml(ev.id)}')">
         <span class="date">${escapeHtml(ev.schedule_label||ev.date_note)}</span>
         <strong>${escapeHtml(ev.name)}</strong>
         <span class="time">${escapeHtml(ev.time_label||ev.date_note)}</span>
+        <span class="timing-badge">${escapeHtml(timing.label)}</span>
       </button>
       <div class="schedule-body">
         <p class="area">打上/会場: ${escapeHtml(ev.area)}｜磯子から ${escapeHtml(ev.direction_from_isogo)}</p>
@@ -109,7 +146,11 @@ function refresh(){
   document.getElementById('selectionSummary').textContent=`${ev} ・ ${cf}`;
   document.querySelectorAll('.schedule-card').forEach((card,i)=>card.classList.toggle('selected',selectedEvents.has(events[i].id)));
   renderSchedule();
-  if(visible.length){map.fitBounds(L.latLngBounds(visible.map(s=>[s.lat,s.lng])).pad(.18),{maxZoom:14})}
+  if(selectedEvents.size&&visible.length){
+    map.fitBounds(L.latLngBounds(visible.map(s=>[s.lat,s.lng])).pad(.18),{maxZoom:14,animate:false});
+  }else{
+    resetMapToIsogo();
+  }
 }
 function renderFilters(){
   const eWrap=document.getElementById('eventFilters');
@@ -126,10 +167,10 @@ function showPanel(id){
   if(id==='mapPanel'&&map)setTimeout(()=>map.invalidateSize(),60);
 }
 async function init(){
-  map=L.map('map',{scrollWheelZoom:true}).setView([35.405,139.618],13);
+  map=L.map('map',{scrollWheelZoom:true,maxBounds:MAP_BOUNDS,maxBoundsViscosity:.35}).setView(ISOGO_STATION,ISOGO_VIEW_ZOOM);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
   const [spotRes,eventRes]=await Promise.all([fetch('data/spots.json'),fetch('data/events.json')]);
-  spots=await spotRes.json(); events=await eventRes.json();
+  spots=await spotRes.json(); events=sortEventsByToday(await eventRes.json());
   renderFilters(); refresh();
   document.getElementById('locateBtn').onclick=()=>{showPanel('mapPanel');map.locate({setView:true,maxZoom:15})};
   map.on('locationfound',e=>L.circle(e.latlng,{radius:e.accuracy,color:'#06b6d4'}).addTo(map));

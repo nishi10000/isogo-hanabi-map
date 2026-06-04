@@ -1,11 +1,14 @@
 const confidenceLabels={confirmed:'確認済み',likely:'有力',possible:'要検証'};
 const accuracyLabels={exact:'ピンポイント',area:'周辺表示',rough:'粗い位置',private_avoid:'非公開/ぼかし'};
 const supportLabels={direct_report:'直接ソース',indirect_view_axis:'眺望ソース'};
+const visibilityLabels={partial_view:'一部見えそう',high_bursts_only:'高い花火のみ',open_view:'見通し良さそう',blocked_likely:'遮られそう',unknown:'未推定'};
+const visibilityColors={open_view:'#16a34a',partial_view:'#22c55e',high_bursts_only:'#f59e0b',blocked_likely:'#64748b',unknown:'#94a3b8'};
+const visibilityOrder=['open_view','partial_view','high_bursts_only','unknown','blocked_likely'];
 const ISOGO_STATION=[35.3997,139.6177];
 const ISOGO_VIEW_ZOOM=14;
 const MAP_BOUNDS=L.latLngBounds([35.31,139.55],[35.48,139.69]);
 let map,spots=[],events=[],markers=L.layerGroup(),launchMarkers=L.layerGroup(),lines=L.layerGroup();
-let selectedEvents=new Set(),selectedConfidence=new Set(['confirmed','likely','possible']);
+let selectedEvents=new Set(),selectedConfidence=new Set(['confirmed','likely','possible']),selectedVisibility=new Set(['open_view','partial_view','high_bursts_only','unknown','blocked_likely']);
 
 function badge(text,cls){return `<span class="badge ${cls}">${text}</span>`}
 function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
@@ -13,12 +16,25 @@ function eventById(id){return events.find(e=>e.id===id)}
 function eventName(id){return eventById(id)?.name||id}
 function eventSpots(eventId){return spots.filter(s=>s.visible_events?.includes(eventId)&&matchesConfidenceAndFamily(s))}
 function evidenceFor(spot,eventId){return spot.event_evidence?.[eventId]||null}
+function visibilityFor(spot,eventId){return spot.visibility_model?.[eventId]||null}
+function selectedEventIdsForSpot(spot){return (selectedEvents.size?[...selectedEvents]:spot.visible_events).filter(id=>spot.visible_events.includes(id))}
+function bestVisibilityFor(spot){
+  const ids=selectedEventIdsForSpot(spot);
+  const models=ids.map(id=>visibilityFor(spot,id)).filter(Boolean);
+  if(!models.length)return null;
+  return models.sort((a,b)=>visibilityOrder.indexOf(a.status)-visibilityOrder.indexOf(b.status)||b.score-a.score)[0];
+}
+function visibilityClass(vm){return vm?.status||'unknown'}
+function visibilityLabel(vm){return vm?.label||visibilityLabels[visibilityClass(vm)]||'未推定'}
 function sourceLink(title,url,cls='source-link'){return `<a class="${cls}" href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(title||url)}</a>`}
 function sourceLinks(sources){return (sources||[]).map(s=>sourceLink(s.title,s.url)).join('')}
 function matchesConfidenceAndFamily(spot){
   if(!selectedConfidence.has(spot.confidence))return false;
   if(document.getElementById('kidFriendlyOnly').checked&&!['high','medium'].includes(spot.kid_friendly))return false;
   if(document.getElementById('strollerFriendlyOnly').checked&&!String(spot.stroller).includes('可'))return false;
+  const ids=selectedEventIdsForSpot(spot);
+  const hasVisibleModel=ids.length?ids.some(id=>selectedVisibility.has(visibilityFor(spot,id)?.status||'unknown')):true;
+  if(!hasVisibleModel)return false;
   return true;
 }
 function matches(spot){
@@ -68,11 +84,15 @@ function selectEvent(id){
   showPanel('mapPanel');
   refresh();
 }
+function lineStyle(vm,active=false){
+  const status=visibilityClass(vm);
+  return {color:visibilityColors[status]||'#94a3b8',weight:active?5:2,opacity:active?.88:.42,dashArray:status==='blocked_likely'?'2 8':status==='unknown'?'4 10':'5 9',interactive:false};
+}
 function drawSelectedEventLines(visible){
   if(!selectedEvents.size)return;
   selectedEventList().forEach(ev=>{
     visible.filter(s=>s.visible_events.includes(ev.id)).forEach(spot=>{
-      L.polyline([[spot.lat,spot.lng],[ev.launch_lat,ev.launch_lng]],{color:'#f97316',weight:2,opacity:.36,dashArray:'5 9',interactive:false}).addTo(lines);
+      L.polyline([[spot.lat,spot.lng],[ev.launch_lat,ev.launch_lng]],lineStyle(visibilityFor(spot,ev.id))).addTo(lines);
     });
   });
 }
@@ -84,15 +104,25 @@ function bestEvidenceHtml(spot){
     return `<li><span class="evidence-pill ${supportClass(ev)}">${escapeHtml(supportLabel(ev))}</span><strong>${escapeHtml(eventName(id))}</strong><br><span>${escapeHtml(ev.summary)}</span>${sourceLink(ev.source_title,ev.source_url,'source-inline')}</li>`;
   }).join('');
 }
+function visibilitySummaryHtml(spot){
+  const ids=selectedEventIdsForSpot(spot);
+  return ids.map(id=>{
+    const vm=visibilityFor(spot,id);
+    if(!vm)return '';
+    return `<li><span class="visibility-pill ${escapeHtml(vm.status)}">${escapeHtml(visibilityLabel(vm))}</span><strong>${escapeHtml(eventName(id))}</strong><br><span>距離 ${escapeHtml(vm.distance_km)}km・方角 ${escapeHtml(vm.bearing_label)}（${escapeHtml(vm.bearing_deg)}°）・標高差 ${escapeHtml(vm.elevation_delta_m)}m・推定スコア ${escapeHtml(vm.score)}</span><ul class="reason-list">${(vm.reasons||[]).map(r=>`<li>${escapeHtml(r)}</li>`).join('')}</ul></li>`;
+  }).join('');
+}
 function oneLineVerdict(spot){
-  const evs=(selectedEvents.size?[...selectedEvents]:spot.visible_events).filter(id=>spot.visible_events.includes(id)).map(eventName).join(' / ');
-  return `${confidenceLabels[spot.confidence]}｜${evs}｜${spot.view_direction}`;
+  const evs=selectedEventIdsForSpot(spot).map(eventName).join(' / ');
+  const vm=bestVisibilityFor(spot);
+  return `${confidenceLabels[spot.confidence]}｜${visibilityLabel(vm)}｜${evs}｜${spot.view_direction}`;
 }
 function detailHtml(spot){
   return `<div class="detail-card"><h3>${escapeHtml(spot.name)}</h3>
-    <div class="meta">${badge(confidenceLabels[spot.confidence]||spot.confidence,spot.confidence)}${badge(accuracyLabels[spot.pin_accuracy]||spot.pin_accuracy,spot.pin_accuracy)}${badge(escapeHtml(spot.category),'category')}</div>
+    <div class="meta">${badge(confidenceLabels[spot.confidence]||spot.confidence,spot.confidence)}${badge(visibilityLabel(bestVisibilityFor(spot)),`visibility ${visibilityClass(bestVisibilityFor(spot))}`)}${badge(accuracyLabels[spot.pin_accuracy]||spot.pin_accuracy,spot.pin_accuracy)}${badge(escapeHtml(spot.category),'category')}</div>
     <p class="verdict">${escapeHtml(oneLineVerdict(spot))}</p>
-    <dl class="detail-list"><dt>見え方</dt><dd>${escapeHtml(spot.visibility_note)}</dd><dt>方角</dt><dd>${escapeHtml(spot.view_direction)}</dd><dt>子連れ</dt><dd>${escapeHtml(spot.kid_friendly)} / ベビーカー: ${escapeHtml(spot.stroller)} / トイレ: ${escapeHtml(spot.toilet)}</dd><dt>注意点</dt><dd>${escapeHtml(spot.access_note)}</dd></dl>
+    <dl class="detail-list"><dt>見え方</dt><dd>${escapeHtml(spot.visibility_note)}</dd><dt>方角</dt><dd>${escapeHtml(spot.view_direction)}</dd><dt>標高</dt><dd>${escapeHtml(spot.elevation_m??'未取得')}m（${escapeHtml(spot.elevation_source||'unknown')}）</dd><dt>子連れ</dt><dd>${escapeHtml(spot.kid_friendly)} / ベビーカー: ${escapeHtml(spot.stroller)} / トイレ: ${escapeHtml(spot.toilet)}</dd><dt>注意点</dt><dd>${escapeHtml(spot.access_note)}</dd></dl>
+    <h4>眺望推定 v0</h4><p class="estimate-warning">標高・距離・方角・既存ソースからの簡易推定です。実際の視界、樹木、工事、天候、混雑、立入可否を保証しません。</p><ul class="visibility-list">${visibilitySummaryHtml(spot)}</ul>
     <h4>「見える可能性」の根拠</h4><ul class="evidence-list">${bestEvidenceHtml(spot)}</ul>
     <p class="warning-inline"><strong>警告:</strong> ${escapeHtml(spot.warning)}</p>
     <div class="sources"><strong>全ソース</strong>${sourceLinks(spot.sources)}</div>
@@ -101,7 +131,9 @@ function detailHtml(spot){
 }
 function popupHtml(spot){return `<div class="popup">${detailHtml(spot)}<button class="full-button" onclick="openSpot('${escapeHtml(spot.id)}')">スマホ詳細で開く</button></div>`}
 function cardHtml(spot){
-  return `<article class="card"><button class="card-main" type="button" onclick="openSpot('${escapeHtml(spot.id)}')"><span class="card-title">${escapeHtml(spot.name)}</span><span class="card-verdict">${escapeHtml(oneLineVerdict(spot))}</span><span class="card-note">${escapeHtml(spot.visibility_note)}</span></button><ul class="evidence-list compact">${bestEvidenceHtml(spot)}</ul></article>`
+  const vm=bestVisibilityFor(spot);
+  const metric=vm?`距離 ${vm.distance_km}km・${vm.bearing_label}・標高差 ${vm.elevation_delta_m}m`:'';
+  return `<article class="card visibility-card ${escapeHtml(visibilityClass(vm))}"><button class="card-main" type="button" onclick="openSpot('${escapeHtml(spot.id)}')"><span class="card-title">${escapeHtml(spot.name)}</span><span class="card-verdict">${escapeHtml(oneLineVerdict(spot))}</span><span class="card-metric">${escapeHtml(metric)}</span><span class="card-note">${escapeHtml(spot.visibility_note)}</span></button><ul class="evidence-list compact">${bestEvidenceHtml(spot)}</ul></article>`
 }
 function renderSchedule(){
   const wrap=document.getElementById('scheduleList'); wrap.innerHTML='';
@@ -136,7 +168,7 @@ function drawLines(spotId){
   lines.clearLayers();
   const spot=spots.find(s=>s.id===spotId); if(!spot)return;
   const ids=selectedEvents.size?[...selectedEvents].filter(id=>spot.visible_events.includes(id)):spot.visible_events;
-  ids.forEach(id=>{const ev=eventById(id); if(!ev)return; L.polyline([[spot.lat,spot.lng],[ev.launch_lat,ev.launch_lng]],{color:'#f97316',weight:4,opacity:.82,dashArray:'7 8'}).bindTooltip(`${spot.name} → ${ev.name}`).addTo(lines)});
+  ids.forEach(id=>{const ev=eventById(id); if(!ev)return; L.polyline([[spot.lat,spot.lng],[ev.launch_lat,ev.launch_lng]],lineStyle(visibilityFor(spot,id),true)).bindTooltip(`${spot.name} → ${ev.name}｜${visibilityLabel(visibilityFor(spot,id))}`).addTo(lines)});
   lines.addTo(map);
   showPanel('mapPanel');
 }
@@ -156,7 +188,7 @@ function refresh(){
   markers.clearLayers(); launchMarkers.clearLayers(); lines.clearLayers();
   const cards=document.getElementById('spotCards'); cards.innerHTML='';
   const visible=spots.filter(matches);
-  visible.forEach(spot=>{const color=spot.confidence==='likely'?'#2563eb':spot.confidence==='confirmed'?'#16a34a':'#9333ea'; const marker=L.circleMarker([spot.lat,spot.lng],{radius:spot.pin_accuracy==='exact'?8:11,color,fillColor:color,fillOpacity:.82,weight:2}).bindPopup(popupHtml(spot)).addTo(markers); marker.on('click',()=>drawLines(spot.id)); cards.insertAdjacentHTML('beforeend',cardHtml(spot));});
+  visible.forEach(spot=>{const vm=bestVisibilityFor(spot); const color=visibilityColors[visibilityClass(vm)]||'#94a3b8'; const marker=L.circleMarker([spot.lat,spot.lng],{radius:spot.pin_accuracy==='exact'?8:11,color,fillColor:color,fillOpacity:.84,weight:2}).bindPopup(popupHtml(spot)).addTo(markers); marker.on('click',()=>drawLines(spot.id)); cards.insertAdjacentHTML('beforeend',cardHtml(spot));});
   selectedEventList().forEach(ev=>L.marker([ev.launch_lat,ev.launch_lng],{icon:launchIcon(ev),zIndexOffset:900}).bindPopup(`<div class="popup"><h3>🎆 ${escapeHtml(ev.name)}</h3><p>${escapeHtml(ev.area)}</p><p>${escapeHtml(ev.schedule_label||ev.date_note)}</p>${sourceLink(ev.source_title||'公式情報',ev.source_url||ev.official_url,'source-inline')}</div>`).addTo(launchMarkers));
   drawSelectedEventLines(visible);
   markers.addTo(map); launchMarkers.addTo(map); lines.addTo(map);
@@ -164,7 +196,8 @@ function refresh(){
   document.getElementById('totalCount').textContent=spots.length;
   const ev=[...selectedEvents].map(eventName).join(' / ')||'全花火大会';
   const cf=[...selectedConfidence].map(x=>confidenceLabels[x]).join(' / ');
-  document.getElementById('selectionSummary').textContent=`${ev} ・ ${cf}`;
+  const vf=[...selectedVisibility].map(x=>visibilityLabels[x]).join(' / ');
+  document.getElementById('selectionSummary').textContent=`${ev} ・ ${cf} ・ ${vf}`;
   document.querySelectorAll('.schedule-card').forEach((card,i)=>card.classList.toggle('selected',selectedEvents.has(events[i].id)));
   renderSchedule();
   if(selectedEvents.size&&visible.length){
@@ -179,9 +212,11 @@ function renderFilters(){
   events.forEach(ev=>{const b=document.createElement('button'); b.className='chip'; b.dataset.eventId=ev.id; b.textContent=ev.name; b.onclick=()=>toggleEvent(ev.id); eWrap.appendChild(b)});
   const cWrap=document.getElementById('confidenceFilters');
   Object.entries(confidenceLabels).forEach(([id,label])=>{const b=document.createElement('button'); b.className='chip active'; b.textContent=label; b.onclick=()=>{selectedConfidence.has(id)?selectedConfidence.delete(id):selectedConfidence.add(id); b.classList.toggle('active'); refresh()}; cWrap.appendChild(b)});
+  const vWrap=document.getElementById('visibilityFilters');
+  visibilityOrder.forEach(id=>{const b=document.createElement('button'); b.className=`chip active visibility-filter ${id}`; b.textContent=visibilityLabels[id]; b.onclick=()=>{selectedVisibility.has(id)?selectedVisibility.delete(id):selectedVisibility.add(id); b.classList.toggle('active'); refresh()}; vWrap.appendChild(b)});
   document.getElementById('kidFriendlyOnly').addEventListener('change',refresh);
   document.getElementById('strollerFriendlyOnly').addEventListener('change',refresh);
-  document.getElementById('resetFilters').onclick=()=>{selectedEvents=new Set([events[0].id]); selectedConfidence=new Set(['confirmed','likely','possible']); document.querySelectorAll('.chip').forEach(b=>b.classList.remove('active')); document.querySelectorAll('#confidenceFilters .chip').forEach(b=>b.classList.add('active')); document.querySelectorAll(`[data-event-id="${CSS.escape(events[0].id)}"]`).forEach(b=>b.classList.add('active')); document.getElementById('kidFriendlyOnly').checked=false; document.getElementById('strollerFriendlyOnly').checked=false; refresh();};
+  document.getElementById('resetFilters').onclick=()=>{selectedEvents=new Set([events[0].id]); selectedConfidence=new Set(['confirmed','likely','possible']); selectedVisibility=new Set(['open_view','partial_view','high_bursts_only','unknown','blocked_likely']); document.querySelectorAll('.chip').forEach(b=>b.classList.remove('active')); document.querySelectorAll('#confidenceFilters .chip,#visibilityFilters .chip').forEach(b=>b.classList.add('active')); document.querySelectorAll(`[data-event-id="${CSS.escape(events[0].id)}"]`).forEach(b=>b.classList.add('active')); document.getElementById('kidFriendlyOnly').checked=false; document.getElementById('strollerFriendlyOnly').checked=false; refresh();};
 }
 function showPanel(id){
   document.querySelectorAll('.mobile-panel').forEach(p=>p.classList.toggle('active',p.id===id));

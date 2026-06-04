@@ -14,7 +14,11 @@
     "schedule_confidence": "annual_pattern",
     "source_title": "第45回横浜開港祭 公式",
     "source_url": "https://www.kaikosai.com/",
-    "source_note": "公式サイトで年度開催情報を確認。花火/演出時間は毎年要確認。"
+    "source_note": "公式サイトで年度開催情報を確認。花火/演出時間は毎年要確認。",
+    "launch_elevation_m": 5.0,
+    "launch_elevation_source": "gsi_dem",
+    "estimated_burst_height_m": 150,
+    "burst_height_note": "一般的な花火の概算値です。公式打上高度ではありません。眺望推定の参考値としてのみ使用。"
   },
   {
     "id": "yokohama-night-flowers",
@@ -31,7 +35,11 @@
     "schedule_confidence": "official",
     "source_title": "横浜ナイトフラワーズ 2026 公式",
     "source_url": "https://www.yokohama-nightflowers.com/",
-    "source_note": "公式に「年間30日程度」「実施日時・打上げ場所は変更の場合あり」と掲載。"
+    "source_note": "公式に「年間30日程度」「実施日時・打上げ場所は変更の場合あり」と掲載。",
+    "launch_elevation_m": 2,
+    "launch_elevation_source": "gsi_unavailable",
+    "estimated_burst_height_m": 110,
+    "burst_height_note": "一般的な花火の概算値です。公式打上高度ではありません。眺望推定の参考値としてのみ使用。"
   },
   {
     "id": "minatomirai-smart-festival",
@@ -48,7 +56,11 @@
     "schedule_confidence": "official",
     "source_title": "みなとみらいフェスティバル 公式",
     "source_url": "https://www.mmsf.yokohama/",
-    "source_note": "公式に2026年8月24日（月）18:30〜20:00予定、音と花火のプログラムと掲載。"
+    "source_note": "公式に2026年8月24日（月）18:30〜20:00予定、音と花火のプログラムと掲載。",
+    "launch_elevation_m": 2,
+    "launch_elevation_source": "gsi_unavailable",
+    "estimated_burst_height_m": 160,
+    "burst_height_note": "一般的な花火の概算値です。公式打上高度ではありません。眺望推定の参考値としてのみ使用。"
   },
   {
     "id": "kanazawa-hanabi",
@@ -65,6 +77,10 @@
     "schedule_confidence": "official",
     "source_title": "第52回金沢まつり花火大会開催情報 - 横浜市金沢区",
     "source_url": "https://www.city.yokohama.lg.jp/kanazawa/kurashi/kyodo_manabi/kyodo_shien/chiiki/kanazawamaturi/maturi2026/hanabi.html",
-    "source_note": "公式ページに令和8年8月22日(土)午後7時〜午後8時、約3,500発予定と掲載。"
+    "source_note": "公式ページに令和8年8月22日(土)午後7時〜午後8時、約3,500発予定と掲載。",
+    "launch_elevation_m": 5.8,
+    "launch_elevation_source": "gsi_dem",
+    "estimated_burst_height_m": 150,
+    "burst_height_note": "一般的な花火の概算値です。公式打上高度ではありません。眺望推定の参考値としてのみ使用。"
   }
 ]

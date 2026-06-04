@@ -42,6 +42,11 @@
         <h2>確度</h2>
         <div id="confidenceFilters" class="chip-list"></div>
       </div>
+      <div class="panel-section">
+        <h2>眺望推定 v0</h2>
+        <div id="visibilityFilters" class="chip-list"></div>
+        <p class="filter-note">標高・距離・方角・既存ソースからの簡易推定です。現地視界は保証しません。</p>
+      </div>
       <div class="panel-section compact-form">
         <h2>子連れ条件</h2>
         <label class="toggle"><input id="kidFriendlyOnly" type="checkbox"> 子連れ high/medium</label>
@@ -52,6 +57,7 @@
         <h2>根拠ラベル</h2>
         <p><span class="evidence-dot direct_report"></span> 直接: 花火を見た/見る企画のソース</p>
         <p><span class="evidence-dot indirect_view_axis"></span> 間接: 夜景・眺望ソースからの候補</p>
+        <div class="visibility-legend" aria-label="眺望推定の線色"><span class="line-dot partial_view"></span><span>一部見えそう</span><span class="line-dot high_bursts_only"></span><span>高い花火のみ</span><span class="line-dot blocked_likely"></span><span>遮られそう/未推定</span></div>
       </div>
     </aside>
 

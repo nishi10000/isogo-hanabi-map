@@ -66,6 +66,73 @@
         "source_type": "local_report",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
       }
+    },
+    "elevation_m": 66.0,
+    "elevation_source": "gsi_dem",
+    "visibility_model": {
+      "yokohama-kaikosai": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.92,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 6.6,
+        "bearing_deg": 18.5,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 61.0,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約61m高い推定です。",
+          "打上地点まで約6.6kmで比較的近距離です。",
+          "既存ソース上の確度が『有力』です。"
+        ]
+      },
+      "yokohama-night-flowers": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.88,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 6.4,
+        "bearing_deg": 27.0,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 64.0,
+        "estimated_burst_height_m": 110,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約64m高い推定です。",
+          "打上地点まで約6.4kmで比較的近距離です。",
+          "既存ソース上の確度が『有力』です。"
+        ]
+      },
+      "minatomirai-smart-festival": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.8,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 7.1,
+        "bearing_deg": 21.1,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 64.0,
+        "estimated_burst_height_m": 160,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約64m高い推定です。",
+          "既存ソース上の確度が『有力』です。",
+          "住宅地・私有地/管理区域に近く、実際に滞在できる視点は限定されます。"
+        ]
+      }
     }
   },
   {
@@ -129,6 +196,73 @@
         "source_type": "night_view_site",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
       }
+    },
+    "elevation_m": 69.4,
+    "elevation_source": "gsi_dem",
+    "visibility_model": {
+      "yokohama-kaikosai": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.76,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 6.5,
+        "bearing_deg": 18.1,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 64.4,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約64m高い推定です。",
+          "打上地点まで約6.5kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      },
+      "yokohama-night-flowers": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.76,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 6.3,
+        "bearing_deg": 26.8,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 67.4,
+        "estimated_burst_height_m": 110,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約67m高い推定です。",
+          "打上地点まで約6.3kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      },
+      "minatomirai-smart-festival": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.76,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 6.9,
+        "bearing_deg": 20.8,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 67.4,
+        "estimated_burst_height_m": 160,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約67m高い推定です。",
+          "打上地点まで約6.9kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      }
     }
   },
   {
@@ -191,6 +325,73 @@
         "source_url": "https://yakei.jp/japan/spot.php?i=takigashira",
         "source_type": "night_view_site",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    },
+    "elevation_m": 45.8,
+    "elevation_source": "gsi_dem",
+    "visibility_model": {
+      "yokohama-kaikosai": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.76,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 4.6,
+        "bearing_deg": 27.4,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 40.8,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約41m高い推定です。",
+          "打上地点まで約4.6kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      },
+      "yokohama-night-flowers": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.76,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 4.6,
+        "bearing_deg": 39.6,
+        "bearing_label": "北東",
+        "elevation_delta_m": 43.8,
+        "estimated_burst_height_m": 110,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約44m高い推定です。",
+          "打上地点まで約4.6kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      },
+      "minatomirai-smart-festival": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.76,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 5.1,
+        "bearing_deg": 30.1,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 43.8,
+        "estimated_burst_height_m": 160,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約44m高い推定です。",
+          "打上地点まで約5.1kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
       }
     }
   },
@@ -261,6 +462,73 @@
         "source_type": "night_view_site",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
       }
+    },
+    "elevation_m": 37.6,
+    "elevation_source": "gsi_dem",
+    "visibility_model": {
+      "yokohama-kaikosai": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.71,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 6.9,
+        "bearing_deg": 18.4,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 32.6,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約33m高い推定です。",
+          "打上地点まで約6.9kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      },
+      "yokohama-night-flowers": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.71,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 6.7,
+        "bearing_deg": 26.5,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 35.6,
+        "estimated_burst_height_m": 110,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約36m高い推定です。",
+          "打上地点まで約6.7kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      },
+      "minatomirai-smart-festival": {
+        "status": "high_bursts_only",
+        "label": "高い花火のみ",
+        "score": 0.63,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 7.4,
+        "bearing_deg": 20.9,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 35.6,
+        "estimated_burst_height_m": 160,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "低い演出は不明で、高く上がる花火のみ見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約36m高い推定です。",
+          "花火視認の直接ソースが弱いため『要検証』です。",
+          "住宅地・私有地/管理区域に近く、実際に滞在できる視点は限定されます。"
+        ]
+      }
     }
   },
   {
@@ -311,6 +579,31 @@
         "source_url": "https://yakei.jp/japan/spot.php?i=sugita",
         "source_type": "night_view_site",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    },
+    "elevation_m": 3.9,
+    "elevation_source": "gsi_dem",
+    "visibility_model": {
+      "kanazawa-hanabi": {
+        "status": "high_bursts_only",
+        "label": "高い花火のみ",
+        "score": 0.69,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 4.8,
+        "bearing_deg": 169.5,
+        "bearing_label": "南",
+        "elevation_delta_m": -1.9,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "低い演出は不明で、高く上がる花火のみ見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "海沿い・湾岸のため、方向が合えば開けた視界を得られる可能性があります。",
+          "打上地点まで約4.8kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
       }
     }
   },
@@ -381,6 +674,73 @@
         "source_type": "official_place_info",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
       }
+    },
+    "elevation_m": 2.7,
+    "elevation_source": "gsi_dem",
+    "visibility_model": {
+      "kanazawa-hanabi": {
+        "status": "unknown",
+        "label": "未推定",
+        "score": 0.41,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 7.6,
+        "bearing_deg": 173.8,
+        "bearing_label": "南",
+        "elevation_delta_m": -3.1,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "データだけでは判断が弱く、現地確認が必要です。",
+          "海沿い・湾岸のため、方向が合えば開けた視界を得られる可能性があります。",
+          "花火視認の直接ソースが弱いため『要検証』です。",
+          "港湾・工業地帯に近く、設備や立入制限で視界/利用場所が限定される可能性があります。",
+          "樹木・暗所・安全面の現地確認が必要です。"
+        ]
+      },
+      "yokohama-kaikosai": {
+        "status": "unknown",
+        "label": "未推定",
+        "score": 0.49,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 5.4,
+        "bearing_deg": 8.6,
+        "bearing_label": "北",
+        "elevation_delta_m": -2.3,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "データだけでは判断が弱く、現地確認が必要です。",
+          "海沿い・湾岸のため、方向が合えば開けた視界を得られる可能性があります。",
+          "打上地点まで約5.4kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。",
+          "港湾・工業地帯に近く、設備や立入制限で視界/利用場所が限定される可能性があります。"
+        ]
+      },
+      "yokohama-night-flowers": {
+        "status": "unknown",
+        "label": "未推定",
+        "score": 0.49,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 5.1,
+        "bearing_deg": 18.8,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 0.7,
+        "estimated_burst_height_m": 110,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "データだけでは判断が弱く、現地確認が必要です。",
+          "海沿い・湾岸のため、方向が合えば開けた視界を得られる可能性があります。",
+          "打上地点まで約5.1kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。",
+          "港湾・工業地帯に近く、設備や立入制限で視界/利用場所が限定される可能性があります。"
+        ]
+      }
     }
   },
   {
@@ -449,6 +809,73 @@
         "source_url": "https://www.nightview.info/detail/takigashira_park/",
         "source_type": "night_view_site",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    },
+    "elevation_m": 54.3,
+    "elevation_source": "gsi_dem",
+    "visibility_model": {
+      "yokohama-kaikosai": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.76,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 4.5,
+        "bearing_deg": 28.3,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 49.3,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約49m高い推定です。",
+          "打上地点まで約4.5kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      },
+      "yokohama-night-flowers": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.76,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 4.5,
+        "bearing_deg": 40.9,
+        "bearing_label": "北東",
+        "elevation_delta_m": 52.3,
+        "estimated_burst_height_m": 110,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約52m高い推定です。",
+          "打上地点まで約4.5kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      },
+      "minatomirai-smart-festival": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.76,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 5.0,
+        "bearing_deg": 31.1,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 52.3,
+        "estimated_burst_height_m": 160,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約52m高い推定です。",
+          "打上地点まで約5.0kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
       }
     }
   },
@@ -519,6 +946,73 @@
         "source_type": "official_place_info",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
       }
+    },
+    "elevation_m": 55.2,
+    "elevation_source": "gsi_dem",
+    "visibility_model": {
+      "yokohama-kaikosai": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.71,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 5.3,
+        "bearing_deg": 24.8,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 50.2,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約50m高い推定です。",
+          "打上地点まで約5.3kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      },
+      "yokohama-night-flowers": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.71,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 5.2,
+        "bearing_deg": 35.5,
+        "bearing_label": "北東",
+        "elevation_delta_m": 53.2,
+        "estimated_burst_height_m": 110,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約53m高い推定です。",
+          "打上地点まで約5.2kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      },
+      "minatomirai-smart-festival": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.71,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 5.8,
+        "bearing_deg": 27.5,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 53.2,
+        "estimated_burst_height_m": 160,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約53m高い推定です。",
+          "打上地点まで約5.8kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      }
     }
   },
   {
@@ -582,6 +1076,73 @@
         "source_type": "night_view_site",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
       }
+    },
+    "elevation_m": 6,
+    "elevation_source": "gsi_unavailable",
+    "visibility_model": {
+      "kanazawa-hanabi": {
+        "status": "unknown",
+        "label": "未推定",
+        "score": 0.55,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 7.1,
+        "bearing_deg": 177.8,
+        "bearing_label": "南",
+        "elevation_delta_m": 0.2,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "データだけでは判断が弱く、現地確認が必要です。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "海沿い・湾岸のため、方向が合えば開けた視界を得られる可能性があります。",
+          "花火視認の直接ソースが弱いため『要検証』です。",
+          "住宅地・私有地/管理区域に近く、実際に滞在できる視点は限定されます。"
+        ]
+      },
+      "yokohama-kaikosai": {
+        "status": "high_bursts_only",
+        "label": "高い花火のみ",
+        "score": 0.63,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 5.8,
+        "bearing_deg": 2.7,
+        "bearing_label": "北",
+        "elevation_delta_m": 1.0,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "低い演出は不明で、高く上がる花火のみ見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "海沿い・湾岸のため、方向が合えば開けた視界を得られる可能性があります。",
+          "打上地点まで約5.8kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      },
+      "yokohama-night-flowers": {
+        "status": "high_bursts_only",
+        "label": "高い花火のみ",
+        "score": 0.63,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 5.3,
+        "bearing_deg": 11.7,
+        "bearing_label": "北北東",
+        "elevation_delta_m": 4,
+        "estimated_burst_height_m": 110,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "低い演出は不明で、高く上がる花火のみ見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "海沿い・湾岸のため、方向が合えば開けた視界を得られる可能性があります。",
+          "打上地点まで約5.3kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
+      }
     }
   },
   {
@@ -626,6 +1187,31 @@
         "source_url": "https://isogo-ku.jp/area_list/facilities/6502",
         "source_type": "place_info",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+      }
+    },
+    "elevation_m": 53.1,
+    "elevation_source": "gsi_dem",
+    "visibility_model": {
+      "kanazawa-hanabi": {
+        "status": "partial_view",
+        "label": "一部見えそう",
+        "score": 0.71,
+        "method": "rough_terrain_building_estimate_v0",
+        "computed_at": "2026-06-04",
+        "distance_km": 6.0,
+        "bearing_deg": 142.7,
+        "bearing_label": "南東",
+        "elevation_delta_m": 47.3,
+        "estimated_burst_height_m": 150,
+        "building_obstruction": "rough_unknown",
+        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
+        "reasons": [
+          "高く上がる花火を中心に、一部見える可能性があります。",
+          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
+          "スポット標高が打上地点より約47m高い推定です。",
+          "打上地点まで約6.0kmで比較的近距離です。",
+          "花火視認の直接ソースが弱いため『要検証』です。"
+        ]
       }
     }
   }

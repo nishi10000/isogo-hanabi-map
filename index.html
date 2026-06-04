@@ -23,8 +23,7 @@
   </section>
 
   <nav class="mobile-tabs" aria-label="スマホ表示切替">
-    <button class="tab-btn active" data-panel="schedulePanel" type="button">予定</button>
-    <button class="tab-btn" data-panel="mapPanel" type="button">地図</button>
+    <button class="tab-btn active" data-panel="mapPanel" type="button">地図</button>
     <button class="tab-btn" data-panel="spotsPanel" type="button">候補地</button>
     <button class="tab-btn" data-panel="filtersPanel" type="button">絞込</button>
   </nav>
@@ -57,19 +56,19 @@
     </aside>
 
     <section class="content-stack">
-      <section class="schedule-shell mobile-panel active" id="schedulePanel" aria-label="花火スケジュールと候補地">
+      <section class="schedule-shell" id="schedulePanel" aria-label="花火タイムライン">
         <div class="section-title-row">
           <div>
-            <h2>花火スケジュール</h2>
-            <p>予定・場所・候補スポット・ソースを1枚に集約</p>
+            <h2>花火タイムライン</h2>
+            <p>横スワイプで花火を選ぶと、地図に打上会場と磯子側の候補地を表示</p>
           </div>
         </div>
         <div id="scheduleList" class="schedule-list"></div>
       </section>
 
-      <section class="map-wrap mobile-panel" id="mapPanel">
+      <section class="map-wrap mobile-panel active" id="mapPanel">
         <div id="map" role="application" aria-label="花火観覧候補地図"></div>
-        <p class="map-hint">ピンを押すと、その場所から打上地点への方向線を表示します。</p>
+        <p class="map-hint">🎆が打上会場、丸ピンが磯子側の候補地です。選択中の花火は方向線も表示します。</p>
       </section>
 
       <section class="spot-shell mobile-panel" id="spotsPanel" aria-label="観覧候補スポット一覧">

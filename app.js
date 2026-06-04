@@ -4,7 +4,7 @@ const supportLabels={direct_report:'直接ソース',indirect_view_axis:'眺望�
 const ISOGO_STATION=[35.3997,139.6177];
 const ISOGO_VIEW_ZOOM=14;
 const MAP_BOUNDS=L.latLngBounds([35.31,139.55],[35.48,139.69]);
-let map,spots=[],events=[],markers=L.layerGroup(),lines=L.layerGroup();
+let map,spots=[],events=[],markers=L.layerGroup(),launchMarkers=L.layerGroup(),lines=L.layerGroup();
 let selectedEvents=new Set(),selectedConfidence=new Set(['confirmed','likely','possible']);
 
 function badge(text,cls){return `<span class="badge ${cls}">${text}</span>`}
@@ -57,6 +57,25 @@ function resetMapToIsogo(){
   if(!map)return;
   map.setView(ISOGO_STATION,ISOGO_VIEW_ZOOM,{animate:false});
 }
+function launchIcon(ev){
+  return L.divIcon({className:'launch-div-icon',html:`<span aria-hidden="true">🎆</span><strong>${escapeHtml(ev.name.replace(/( 花火| 花火大会|系 花火)$/,''))}</strong>`,iconSize:[112,42],iconAnchor:[56,42]});
+}
+function spotLatLngs(list){return list.map(s=>[s.lat,s.lng])}
+function selectedEventList(){return selectedEvents.size?[...selectedEvents].map(eventById).filter(Boolean):events}
+function selectEvent(id){
+  selectedEvents=new Set([id]);
+  document.querySelectorAll('[data-event-id]').forEach(b=>b.classList.toggle('active',b.dataset.eventId===id));
+  showPanel('mapPanel');
+  refresh();
+}
+function drawSelectedEventLines(visible){
+  if(!selectedEvents.size)return;
+  selectedEventList().forEach(ev=>{
+    visible.filter(s=>s.visible_events.includes(ev.id)).forEach(spot=>{
+      L.polyline([[spot.lat,spot.lng],[ev.launch_lat,ev.launch_lng]],{color:'#f97316',weight:2,opacity:.36,dashArray:'5 9',interactive:false}).addTo(lines);
+    });
+  });
+}
 function bestEvidenceHtml(spot){
   const ids=selectedEvents.size?[...selectedEvents]:spot.visible_events;
   return ids.filter(id=>spot.visible_events.includes(id)).map(id=>{
@@ -87,7 +106,7 @@ function cardHtml(spot){
 function renderSchedule(){
   const wrap=document.getElementById('scheduleList'); wrap.innerHTML='';
   const today=todayStart();
-  wrap.insertAdjacentHTML('beforeend',`<p class="today-note">今日: <strong>${escapeHtml(formatDateJa(today))}</strong>。日付が近い花火を上から表示しています。</p>`);
+  wrap.insertAdjacentHTML('beforeend',`<div class="today-note">今日: <strong>${escapeHtml(formatDateJa(today))}</strong>。近い予定から横スワイプで選べます。</div>`);
   events.forEach((ev,index)=>{
     const timing=eventTiming(ev,today);
     const candidates=eventSpots(ev.id);
@@ -98,14 +117,14 @@ function renderSchedule(){
     const direct=candidates.filter(s=>supportClass(evidenceFor(s,ev.id))==='direct_report').length;
     const indirect=candidates.length-direct;
     wrap.insertAdjacentHTML('beforeend',`<article class="schedule-card ${selectedEvents.has(ev.id)?'selected':''} ${index===0?'next-event':''}">
-      <button class="schedule-head" type="button" onclick="toggleEvent('${escapeHtml(ev.id)}')">
+      <button class="schedule-head" type="button" onclick="selectEvent('${escapeHtml(ev.id)}')">
         <span class="date">${escapeHtml(ev.schedule_label||ev.date_note)}</span>
         <strong>${escapeHtml(ev.name)}</strong>
         <span class="time">${escapeHtml(ev.time_label||ev.date_note)}</span>
         <span class="timing-badge">${escapeHtml(timing.label)}</span>
       </button>
       <div class="schedule-body">
-        <p class="area">打上/会場: ${escapeHtml(ev.area)}｜磯子から ${escapeHtml(ev.direction_from_isogo)}</p>
+        <p class="area">🎆 打上/会場: ${escapeHtml(ev.area)}｜磯子から ${escapeHtml(ev.direction_from_isogo)}</p>
         <p class="source-row">${sourceLink(ev.source_title||'公式情報',ev.source_url||ev.official_url,'source-inline')} <span>${escapeHtml(ev.source_note||'年度ごとに要確認')}</span></p>
         <p class="count-line">候補 ${candidates.length}件（直接ソース ${direct} / 眺望ソース ${indirect}）</p>
         <div class="spot-chip-list">${chips}</div>
@@ -117,7 +136,7 @@ function drawLines(spotId){
   lines.clearLayers();
   const spot=spots.find(s=>s.id===spotId); if(!spot)return;
   const ids=selectedEvents.size?[...selectedEvents].filter(id=>spot.visible_events.includes(id)):spot.visible_events;
-  ids.forEach(id=>{const ev=eventById(id); if(!ev)return; L.polyline([[spot.lat,spot.lng],[ev.launch_lat,ev.launch_lng]],{color:'#f97316',weight:3,opacity:.78,dashArray:'7 8'}).bindTooltip(ev.name).addTo(lines)});
+  ids.forEach(id=>{const ev=eventById(id); if(!ev)return; L.polyline([[spot.lat,spot.lng],[ev.launch_lat,ev.launch_lng]],{color:'#f97316',weight:4,opacity:.82,dashArray:'7 8'}).bindTooltip(`${spot.name} → ${ev.name}`).addTo(lines)});
   lines.addTo(map);
   showPanel('mapPanel');
 }
@@ -134,11 +153,13 @@ function toggleEvent(id){
   refresh();
 }
 function refresh(){
-  markers.clearLayers(); lines.clearLayers();
+  markers.clearLayers(); launchMarkers.clearLayers(); lines.clearLayers();
   const cards=document.getElementById('spotCards'); cards.innerHTML='';
   const visible=spots.filter(matches);
   visible.forEach(spot=>{const color=spot.confidence==='likely'?'#2563eb':spot.confidence==='confirmed'?'#16a34a':'#9333ea'; const marker=L.circleMarker([spot.lat,spot.lng],{radius:spot.pin_accuracy==='exact'?8:11,color,fillColor:color,fillOpacity:.82,weight:2}).bindPopup(popupHtml(spot)).addTo(markers); marker.on('click',()=>drawLines(spot.id)); cards.insertAdjacentHTML('beforeend',cardHtml(spot));});
-  markers.addTo(map);
+  selectedEventList().forEach(ev=>L.marker([ev.launch_lat,ev.launch_lng],{icon:launchIcon(ev),zIndexOffset:900}).bindPopup(`<div class="popup"><h3>🎆 ${escapeHtml(ev.name)}</h3><p>${escapeHtml(ev.area)}</p><p>${escapeHtml(ev.schedule_label||ev.date_note)}</p>${sourceLink(ev.source_title||'公式情報',ev.source_url||ev.official_url,'source-inline')}</div>`).addTo(launchMarkers));
+  drawSelectedEventLines(visible);
+  markers.addTo(map); launchMarkers.addTo(map); lines.addTo(map);
   document.getElementById('visibleCount').textContent=visible.length;
   document.getElementById('totalCount').textContent=spots.length;
   const ev=[...selectedEvents].map(eventName).join(' / ')||'全花火大会';
@@ -147,7 +168,8 @@ function refresh(){
   document.querySelectorAll('.schedule-card').forEach((card,i)=>card.classList.toggle('selected',selectedEvents.has(events[i].id)));
   renderSchedule();
   if(selectedEvents.size&&visible.length){
-    map.fitBounds(L.latLngBounds(visible.map(s=>[s.lat,s.lng])).pad(.18),{maxZoom:14,animate:false});
+    const launchLatLngs=selectedEventList().map(ev=>[ev.launch_lat,ev.launch_lng]);
+    map.fitBounds(L.latLngBounds([...spotLatLngs(visible),...launchLatLngs]).pad(.16),{maxZoom:13,animate:false});
   }else{
     resetMapToIsogo();
   }
@@ -159,7 +181,7 @@ function renderFilters(){
   Object.entries(confidenceLabels).forEach(([id,label])=>{const b=document.createElement('button'); b.className='chip active'; b.textContent=label; b.onclick=()=>{selectedConfidence.has(id)?selectedConfidence.delete(id):selectedConfidence.add(id); b.classList.toggle('active'); refresh()}; cWrap.appendChild(b)});
   document.getElementById('kidFriendlyOnly').addEventListener('change',refresh);
   document.getElementById('strollerFriendlyOnly').addEventListener('change',refresh);
-  document.getElementById('resetFilters').onclick=()=>{selectedEvents.clear(); selectedConfidence=new Set(['confirmed','likely','possible']); document.querySelectorAll('.chip').forEach(b=>b.classList.remove('active')); document.querySelectorAll('#confidenceFilters .chip').forEach(b=>b.classList.add('active')); document.getElementById('kidFriendlyOnly').checked=false; document.getElementById('strollerFriendlyOnly').checked=false; refresh();};
+  document.getElementById('resetFilters').onclick=()=>{selectedEvents=new Set([events[0].id]); selectedConfidence=new Set(['confirmed','likely','possible']); document.querySelectorAll('.chip').forEach(b=>b.classList.remove('active')); document.querySelectorAll('#confidenceFilters .chip').forEach(b=>b.classList.add('active')); document.querySelectorAll(`[data-event-id="${CSS.escape(events[0].id)}"]`).forEach(b=>b.classList.add('active')); document.getElementById('kidFriendlyOnly').checked=false; document.getElementById('strollerFriendlyOnly').checked=false; refresh();};
 }
 function showPanel(id){
   document.querySelectorAll('.mobile-panel').forEach(p=>p.classList.toggle('active',p.id===id));
@@ -171,7 +193,10 @@ async function init(){
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
   const [spotRes,eventRes]=await Promise.all([fetch('data/spots.json'),fetch('data/events.json')]);
   spots=await spotRes.json(); events=sortEventsByToday(await eventRes.json());
-  renderFilters(); refresh();
+  selectedEvents=new Set([events[0].id]);
+  renderFilters();
+  document.querySelectorAll(`[data-event-id="${CSS.escape(events[0].id)}"]`).forEach(b=>b.classList.add('active'));
+  refresh();
   document.getElementById('locateBtn').onclick=()=>{showPanel('mapPanel');map.locate({setView:true,maxZoom:15})};
   map.on('locationfound',e=>L.circle(e.latlng,{radius:e.accuracy,color:'#06b6d4'}).addTo(map));
   document.getElementById('closeDialog').onclick=()=>document.getElementById('detailDialog').close();

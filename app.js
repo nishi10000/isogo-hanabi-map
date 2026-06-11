@@ -135,6 +135,19 @@ function cardHtml(spot){
   const metric=vm?`距離 ${vm.distance_km}km・${vm.bearing_label}・標高差 ${vm.elevation_delta_m}m`:'';
   return `<article class="card visibility-card ${escapeHtml(visibilityClass(vm))}"><button class="card-main" type="button" onclick="openSpot('${escapeHtml(spot.id)}')"><span class="card-title">${escapeHtml(spot.name)}</span><span class="card-verdict">${escapeHtml(oneLineVerdict(spot))}</span><span class="card-metric">${escapeHtml(metric)}</span><span class="card-note">${escapeHtml(spot.visibility_note)}</span></button><ul class="evidence-list compact">${bestEvidenceHtml(spot)}</ul></article>`
 }
+function updateActiveSummary(visible){
+  const box=document.getElementById('activeSummary');
+  if(!box)return;
+  const ev=selectedEventList()[0]||events[0];
+  if(!ev){box.innerHTML='';return;}
+  const timing=eventTiming(ev);
+  const eventVisible=visible.filter(s=>s.visible_events.includes(ev.id));
+  const recommended=[...eventVisible]
+    .sort((a,b)=>visibilityOrder.indexOf(visibilityClass(bestVisibilityFor(a)))-visibilityOrder.indexOf(visibilityClass(bestVisibilityFor(b))))
+    .slice(0,3);
+  const recHtml=recommended.map(s=>`<button class="summary-chip" type="button" onclick="openSpot('${escapeHtml(s.id)}')">${escapeHtml(s.name)}<small>${escapeHtml(visibilityLabel(bestVisibilityFor(s)))}</small></button>`).join('')||'<span class="muted">条件に合う候補地なし</span>';
+  box.innerHTML=`<div><p class="summary-kicker">次に見るなら</p><h2>${escapeHtml(ev.name)}</h2><p>${escapeHtml(ev.schedule_label||ev.date_note)} / ${escapeHtml(ev.time_label||'時間要確認')} <span class="timing-badge">${escapeHtml(timing.label)}</span></p></div><div class="summary-actions"><strong>${eventVisible.length}候補</strong>${recHtml}</div>`;
+}
 function renderSchedule(){
   const wrap=document.getElementById('scheduleList'); wrap.innerHTML='';
   const today=todayStart();
@@ -198,6 +211,7 @@ function refresh(){
   const cf=[...selectedConfidence].map(x=>confidenceLabels[x]).join(' / ');
   const vf=[...selectedVisibility].map(x=>visibilityLabels[x]).join(' / ');
   document.getElementById('selectionSummary').textContent=`${ev} ・ ${cf} ・ ${vf}`;
+  updateActiveSummary(visible);
   document.querySelectorAll('.schedule-card').forEach((card,i)=>card.classList.toggle('selected',selectedEvents.has(events[i].id)));
   renderSchedule();
   if(selectedEvents.size&&visible.length){

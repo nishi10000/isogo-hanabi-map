@@ -8,12 +8,11 @@
     "category": "高台/周辺エリア",
     "confidence": "likely",
     "visible_events": [
-      "yokohama-kaikosai",
       "yokohama-night-flowers",
       "minatomirai-smart-festival"
     ],
     "view_direction": "北〜北東",
-    "visibility_note": "地域イベントで横浜開港祭花火観覧の開催/レポートがあり、みなとみらい方面の高く上がる花火は見える可能性あり。低い演出・建物越しは要確認。",
+    "visibility_note": "高台・夜景スポット情報があり、みなとみらい方面・横浜港方面の高く上がる花火は見える可能性あり。低い演出・建物越しは要確認。",
     "kid_friendly": "medium",
     "stroller": "坂あり・動線確認推奨",
     "toilet": "nearby_unknown",
@@ -21,12 +20,6 @@
     "access_note": "住宅地・マンション敷地に近い。公開通路/商業施設の営業時間・立入可否を必ず確認。",
     "warning": "私有地・マンション敷地内への立ち入り禁止。ピンは周辺エリアとしてぼかしています。",
     "sources": [
-      {
-        "title": "ブリリアの丘から花火を眺めよう～横浜開港祭2017",
-        "url": "https://isogotmc.net/ne/hanabi_kaikosai201%EF%BC%97/",
-        "type": "local_report",
-        "checked_at": "2026-06-03"
-      },
       {
         "title": "ブリリアシティ横浜磯子 展望台 - こよなく夜景を愛する人へ",
         "url": "https://yakei.jp/japan/spot.php?i=yokohama-isogo",
@@ -42,27 +35,19 @@
     ],
     "last_verified_at": null,
     "event_evidence": {
-      "yokohama-kaikosai": {
-        "support_level": "direct_report",
-        "summary": "ブリリアの丘から横浜開港祭花火を眺める趣旨の地域レポート。",
-        "source_title": "ブリリアの丘から花火を眺めよう～横浜開港祭2017",
-        "source_url": "https://isogotmc.net/ne/hanabi_kaikosai201%EF%BC%97/",
-        "source_type": "local_report",
-        "note": "地域レポートで横浜開港祭の花火観覧企画/記録があるため、有力扱い。"
-      },
       "yokohama-night-flowers": {
         "support_level": "indirect_view_axis",
         "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
-        "source_title": "ブリリアの丘から花火を眺めよう～横浜開港祭2017",
-        "source_url": "https://isogotmc.net/ne/hanabi_kaikosai201%EF%BC%97/",
+        "source_title": "横浜港方面の眺望候補（過去イベント情報は除外済み）",
+        "source_url": "https://www.yokohama-nightflowers.com/",
         "source_type": "local_report",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
       },
       "minatomirai-smart-festival": {
         "support_level": "indirect_view_axis",
         "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
-        "source_title": "ブリリアの丘から花火を眺めよう～横浜開港祭2017",
-        "source_url": "https://isogotmc.net/ne/hanabi_kaikosai201%EF%BC%97/",
+        "source_title": "横浜港方面の眺望候補（過去イベント情報は除外済み）",
+        "source_url": "https://www.yokohama-nightflowers.com/",
         "source_type": "local_report",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
       }
@@ -70,27 +55,6 @@
     "elevation_m": 66.0,
     "elevation_source": "gsi_dem",
     "visibility_model": {
-      "yokohama-kaikosai": {
-        "status": "partial_view",
-        "label": "一部見えそう",
-        "score": 0.92,
-        "method": "rough_terrain_building_estimate_v0",
-        "computed_at": "2026-06-04",
-        "distance_km": 6.6,
-        "bearing_deg": 18.5,
-        "bearing_label": "北北東",
-        "elevation_delta_m": 61.0,
-        "estimated_burst_height_m": 150,
-        "building_obstruction": "rough_unknown",
-        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
-        "reasons": [
-          "高く上がる花火を中心に、一部見える可能性があります。",
-          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
-          "スポット標高が打上地点より約61m高い推定です。",
-          "打上地点まで約6.6kmで比較的近距離です。",
-          "既存ソース上の確度が『有力』です。"
-        ]
-      },
       "yokohama-night-flowers": {
         "status": "partial_view",
         "label": "一部見えそう",
@@ -133,7 +97,8 @@
           "住宅地・私有地/管理区域に近く、実際に滞在できる視点は限定されます。"
         ]
       }
-    }
+    },
+    "last_schedule_verified_at": "2026-07-19"
   },
   {
     "id": "hilltop-mall-isogo-area",
@@ -144,7 +109,6 @@
     "category": "商業施設周辺/高台",
     "confidence": "possible",
     "visible_events": [
-      "yokohama-kaikosai",
       "yokohama-night-flowers",
       "minatomirai-smart-festival"
     ],
@@ -172,14 +136,6 @@
     ],
     "last_verified_at": null,
     "event_evidence": {
-      "yokohama-kaikosai": {
-        "support_level": "indirect_view_axis",
-        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
-        "source_title": "ヒルトップモール - こよなく夜景を愛する人へ",
-        "source_url": "https://yakei.jp/japan/spot.php?i=hill-top",
-        "source_type": "night_view_site",
-        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
-      },
       "yokohama-night-flowers": {
         "support_level": "indirect_view_axis",
         "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
@@ -200,27 +156,6 @@
     "elevation_m": 69.4,
     "elevation_source": "gsi_dem",
     "visibility_model": {
-      "yokohama-kaikosai": {
-        "status": "partial_view",
-        "label": "一部見えそう",
-        "score": 0.76,
-        "method": "rough_terrain_building_estimate_v0",
-        "computed_at": "2026-06-04",
-        "distance_km": 6.5,
-        "bearing_deg": 18.1,
-        "bearing_label": "北北東",
-        "elevation_delta_m": 64.4,
-        "estimated_burst_height_m": 150,
-        "building_obstruction": "rough_unknown",
-        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
-        "reasons": [
-          "高く上がる花火を中心に、一部見える可能性があります。",
-          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
-          "スポット標高が打上地点より約64m高い推定です。",
-          "打上地点まで約6.5kmで比較的近距離です。",
-          "花火視認の直接ソースが弱いため『要検証』です。"
-        ]
-      },
       "yokohama-night-flowers": {
         "status": "partial_view",
         "label": "一部見えそう",
@@ -263,7 +198,8 @@
           "花火視認の直接ソースが弱いため『要検証』です。"
         ]
       }
-    }
+    },
+    "last_schedule_verified_at": "2026-07-19"
   },
   {
     "id": "okamura-3-4-park",
@@ -274,7 +210,6 @@
     "category": "公園/高台",
     "confidence": "possible",
     "visible_events": [
-      "yokohama-kaikosai",
       "yokohama-night-flowers",
       "minatomirai-smart-festival"
     ],
@@ -302,14 +237,6 @@
     ],
     "last_verified_at": null,
     "event_evidence": {
-      "yokohama-kaikosai": {
-        "support_level": "indirect_view_axis",
-        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
-        "source_title": "神奈川県横浜市磯子区の夜景 (岡村三丁目第四公園)",
-        "source_url": "https://yakei.jp/japan/spot.php?i=takigashira",
-        "source_type": "night_view_site",
-        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
-      },
       "yokohama-night-flowers": {
         "support_level": "indirect_view_axis",
         "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
@@ -330,27 +257,6 @@
     "elevation_m": 45.8,
     "elevation_source": "gsi_dem",
     "visibility_model": {
-      "yokohama-kaikosai": {
-        "status": "partial_view",
-        "label": "一部見えそう",
-        "score": 0.76,
-        "method": "rough_terrain_building_estimate_v0",
-        "computed_at": "2026-06-04",
-        "distance_km": 4.6,
-        "bearing_deg": 27.4,
-        "bearing_label": "北北東",
-        "elevation_delta_m": 40.8,
-        "estimated_burst_height_m": 150,
-        "building_obstruction": "rough_unknown",
-        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
-        "reasons": [
-          "高く上がる花火を中心に、一部見える可能性があります。",
-          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
-          "スポット標高が打上地点より約41m高い推定です。",
-          "打上地点まで約4.6kmで比較的近距離です。",
-          "花火視認の直接ソースが弱いため『要検証』です。"
-        ]
-      },
       "yokohama-night-flowers": {
         "status": "partial_view",
         "label": "一部見えそう",
@@ -393,7 +299,8 @@
           "花火視認の直接ソースが弱いため『要検証』です。"
         ]
       }
-    }
+    },
+    "last_schedule_verified_at": "2026-07-19"
   },
   {
     "id": "mori-miharashi-park",
@@ -404,7 +311,6 @@
     "category": "公園/高台",
     "confidence": "possible",
     "visible_events": [
-      "yokohama-kaikosai",
       "yokohama-night-flowers",
       "minatomirai-smart-festival"
     ],
@@ -438,14 +344,6 @@
     ],
     "last_verified_at": null,
     "event_evidence": {
-      "yokohama-kaikosai": {
-        "support_level": "indirect_view_axis",
-        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
-        "source_title": "森みはらし公園 - 横浜市磯子区の夜景",
-        "source_url": "https://yakei.jp/japan/spot.php?i=morinomiharashi",
-        "source_type": "night_view_site",
-        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
-      },
       "yokohama-night-flowers": {
         "support_level": "indirect_view_axis",
         "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
@@ -466,27 +364,6 @@
     "elevation_m": 37.6,
     "elevation_source": "gsi_dem",
     "visibility_model": {
-      "yokohama-kaikosai": {
-        "status": "partial_view",
-        "label": "一部見えそう",
-        "score": 0.71,
-        "method": "rough_terrain_building_estimate_v0",
-        "computed_at": "2026-06-04",
-        "distance_km": 6.9,
-        "bearing_deg": 18.4,
-        "bearing_label": "北北東",
-        "elevation_delta_m": 32.6,
-        "estimated_burst_height_m": 150,
-        "building_obstruction": "rough_unknown",
-        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
-        "reasons": [
-          "高く上がる花火を中心に、一部見える可能性があります。",
-          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
-          "スポット標高が打上地点より約33m高い推定です。",
-          "打上地点まで約6.9kmで比較的近距離です。",
-          "花火視認の直接ソースが弱いため『要検証』です。"
-        ]
-      },
       "yokohama-night-flowers": {
         "status": "partial_view",
         "label": "一部見えそう",
@@ -529,7 +406,8 @@
           "住宅地・私有地/管理区域に近く、実際に滞在できる視点は限定されます。"
         ]
       }
-    }
+    },
+    "last_schedule_verified_at": "2026-07-19"
   },
   {
     "id": "sugita-rinkai-ryokuchi",
@@ -605,7 +483,8 @@
           "花火視認の直接ソースが弱いため『要検証』です。"
         ]
       }
-    }
+    },
+    "last_schedule_verified_at": "2026-07-19"
   },
   {
     "id": "isogo-umi-no-mieru-park",
@@ -617,7 +496,6 @@
     "confidence": "possible",
     "visible_events": [
       "kanazawa-hanabi",
-      "yokohama-kaikosai",
       "yokohama-night-flowers"
     ],
     "view_direction": "南〜南東 / 北〜北東",
@@ -658,14 +536,6 @@
         "source_type": "official_place_info",
         "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
       },
-      "yokohama-kaikosai": {
-        "support_level": "indirect_view_axis",
-        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
-        "source_title": "磯子・海の見える公園 - 横浜市PDF",
-        "source_url": "https://www.city.yokohama.lg.jp/isogo/kurashi/machizukuri_kankyo/jimusho/koen-shokai/20120312112747.files/0001_20181120.pdf",
-        "source_type": "official_place_info",
-        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
-      },
       "yokohama-night-flowers": {
         "support_level": "indirect_view_axis",
         "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
@@ -699,27 +569,6 @@
           "樹木・暗所・安全面の現地確認が必要です。"
         ]
       },
-      "yokohama-kaikosai": {
-        "status": "unknown",
-        "label": "未推定",
-        "score": 0.49,
-        "method": "rough_terrain_building_estimate_v0",
-        "computed_at": "2026-06-04",
-        "distance_km": 5.4,
-        "bearing_deg": 8.6,
-        "bearing_label": "北",
-        "elevation_delta_m": -2.3,
-        "estimated_burst_height_m": 150,
-        "building_obstruction": "rough_unknown",
-        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
-        "reasons": [
-          "データだけでは判断が弱く、現地確認が必要です。",
-          "海沿い・湾岸のため、方向が合えば開けた視界を得られる可能性があります。",
-          "打上地点まで約5.4kmで比較的近距離です。",
-          "花火視認の直接ソースが弱いため『要検証』です。",
-          "港湾・工業地帯に近く、設備や立入制限で視界/利用場所が限定される可能性があります。"
-        ]
-      },
       "yokohama-night-flowers": {
         "status": "unknown",
         "label": "未推定",
@@ -741,7 +590,8 @@
           "港湾・工業地帯に近く、設備や立入制限で視界/利用場所が限定される可能性があります。"
         ]
       }
-    }
+    },
+    "last_schedule_verified_at": "2026-07-19"
   },
   {
     "id": "takigashira-3-park",
@@ -752,7 +602,6 @@
     "category": "公園/高台",
     "confidence": "possible",
     "visible_events": [
-      "yokohama-kaikosai",
       "yokohama-night-flowers",
       "minatomirai-smart-festival"
     ],
@@ -786,14 +635,6 @@
     ],
     "last_verified_at": null,
     "event_evidence": {
-      "yokohama-kaikosai": {
-        "support_level": "indirect_view_axis",
-        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
-        "source_title": "滝頭第三公園 - 夜景INFO",
-        "source_url": "https://www.nightview.info/detail/takigashira_park/",
-        "source_type": "night_view_site",
-        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
-      },
       "yokohama-night-flowers": {
         "support_level": "indirect_view_axis",
         "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
@@ -814,27 +655,6 @@
     "elevation_m": 54.3,
     "elevation_source": "gsi_dem",
     "visibility_model": {
-      "yokohama-kaikosai": {
-        "status": "partial_view",
-        "label": "一部見えそう",
-        "score": 0.76,
-        "method": "rough_terrain_building_estimate_v0",
-        "computed_at": "2026-06-04",
-        "distance_km": 4.5,
-        "bearing_deg": 28.3,
-        "bearing_label": "北北東",
-        "elevation_delta_m": 49.3,
-        "estimated_burst_height_m": 150,
-        "building_obstruction": "rough_unknown",
-        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
-        "reasons": [
-          "高く上がる花火を中心に、一部見える可能性があります。",
-          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
-          "スポット標高が打上地点より約49m高い推定です。",
-          "打上地点まで約4.5kmで比較的近距離です。",
-          "花火視認の直接ソースが弱いため『要検証』です。"
-        ]
-      },
       "yokohama-night-flowers": {
         "status": "partial_view",
         "label": "一部見えそう",
@@ -877,7 +697,8 @@
           "花火視認の直接ソースが弱いため『要検証』です。"
         ]
       }
-    }
+    },
+    "last_schedule_verified_at": "2026-07-19"
   },
   {
     "id": "okamura-park",
@@ -888,7 +709,6 @@
     "category": "公園/高台",
     "confidence": "possible",
     "visible_events": [
-      "yokohama-kaikosai",
       "yokohama-night-flowers",
       "minatomirai-smart-festival"
     ],
@@ -922,14 +742,6 @@
     ],
     "last_verified_at": null,
     "event_evidence": {
-      "yokohama-kaikosai": {
-        "support_level": "indirect_view_axis",
-        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
-        "source_title": "岡村公園について - 神奈川公園協会",
-        "source_url": "https://www.kanagawaparks.com/okamura/about.html",
-        "source_type": "official_place_info",
-        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
-      },
       "yokohama-night-flowers": {
         "support_level": "indirect_view_axis",
         "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
@@ -950,27 +762,6 @@
     "elevation_m": 55.2,
     "elevation_source": "gsi_dem",
     "visibility_model": {
-      "yokohama-kaikosai": {
-        "status": "partial_view",
-        "label": "一部見えそう",
-        "score": 0.71,
-        "method": "rough_terrain_building_estimate_v0",
-        "computed_at": "2026-06-04",
-        "distance_km": 5.3,
-        "bearing_deg": 24.8,
-        "bearing_label": "北北東",
-        "elevation_delta_m": 50.2,
-        "estimated_burst_height_m": 150,
-        "building_obstruction": "rough_unknown",
-        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
-        "reasons": [
-          "高く上がる花火を中心に、一部見える可能性があります。",
-          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
-          "スポット標高が打上地点より約50m高い推定です。",
-          "打上地点まで約5.3kmで比較的近距離です。",
-          "花火視認の直接ソースが弱いため『要検証』です。"
-        ]
-      },
       "yokohama-night-flowers": {
         "status": "partial_view",
         "label": "一部見えそう",
@@ -1013,7 +804,8 @@
           "花火視認の直接ソースが弱いため『要検証』です。"
         ]
       }
-    }
+    },
+    "last_schedule_verified_at": "2026-07-19"
   },
   {
     "id": "shin-isogo-negishi-bay-area",
@@ -1025,7 +817,6 @@
     "confidence": "possible",
     "visible_events": [
       "kanazawa-hanabi",
-      "yokohama-kaikosai",
       "yokohama-night-flowers"
     ],
     "view_direction": "南〜南東 / 北〜北東",
@@ -1053,14 +844,6 @@
     "last_verified_at": null,
     "event_evidence": {
       "kanazawa-hanabi": {
-        "support_level": "indirect_view_axis",
-        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
-        "source_title": "新磯子 工場夜景 - 首都高",
-        "source_url": "https://www.shutoko.jp/ss/shutokodeikou/special/yakei/spots/p011.html",
-        "source_type": "night_view_site",
-        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
-      },
-      "yokohama-kaikosai": {
         "support_level": "indirect_view_axis",
         "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
         "source_title": "新磯子 工場夜景 - 首都高",
@@ -1101,27 +884,6 @@
           "住宅地・私有地/管理区域に近く、実際に滞在できる視点は限定されます。"
         ]
       },
-      "yokohama-kaikosai": {
-        "status": "high_bursts_only",
-        "label": "高い花火のみ",
-        "score": 0.63,
-        "method": "rough_terrain_building_estimate_v0",
-        "computed_at": "2026-06-04",
-        "distance_km": 5.8,
-        "bearing_deg": 2.7,
-        "bearing_label": "北",
-        "elevation_delta_m": 1.0,
-        "estimated_burst_height_m": 150,
-        "building_obstruction": "rough_unknown",
-        "building_note": "建物高さはOSM/PLATEAUの精査前です。住宅・マンション・港湾設備・樹木による遮蔽は現地確認が必要。",
-        "reasons": [
-          "低い演出は不明で、高く上がる花火のみ見える可能性があります。",
-          "高台/夜景スポットとして紹介されており、地形面では有利な可能性があります。",
-          "海沿い・湾岸のため、方向が合えば開けた視界を得られる可能性があります。",
-          "打上地点まで約5.8kmで比較的近距離です。",
-          "花火視認の直接ソースが弱いため『要検証』です。"
-        ]
-      },
       "yokohama-night-flowers": {
         "status": "high_bursts_only",
         "label": "高い花火のみ",
@@ -1143,7 +905,8 @@
           "花火視認の直接ソースが弱いため『要検証』です。"
         ]
       }
-    }
+    },
+    "last_schedule_verified_at": "2026-07-19"
   },
   {
     "id": "yokodai-kita-park",
@@ -1213,6 +976,7 @@
           "花火視認の直接ソースが弱いため『要検証』です。"
         ]
       }
-    }
+    },
+    "last_schedule_verified_at": "2026-07-19"
   }
 ]

@@ -161,6 +161,7 @@ function renderSchedule(){
     }).join('')||'<p class="muted">条件に合う候補地なし</p>';
     const direct=candidates.filter(s=>supportClass(evidenceFor(s,ev.id))==='direct_report').length;
     const indirect=candidates.length-direct;
+    const scheduleItems=(ev.schedule_items||[]).map(item=>`<li><strong>${escapeHtml(item.label)}</strong><span>${escapeHtml(item.time)} / ${escapeHtml(item.launch_place)}</span>${item.note?`<small>${escapeHtml(item.note)}</small>`:''}</li>`).join('');
     wrap.insertAdjacentHTML('beforeend',`<article class="schedule-card ${selectedEvents.has(ev.id)?'selected':''} ${index===0?'next-event':''}">
       <button class="schedule-head" type="button" onclick="selectEvent('${escapeHtml(ev.id)}')">
         <span class="date">${escapeHtml(ev.schedule_label||ev.date_note)}</span>
@@ -169,6 +170,7 @@ function renderSchedule(){
         <span class="timing-badge">${escapeHtml(timing.label)}</span>
       </button>
       <div class="schedule-body">
+        ${scheduleItems?`<ul class="sub-schedule" aria-label="今後の開催日">${scheduleItems}</ul>`:''}
         <p class="area">🎆 打上/会場: ${escapeHtml(ev.area)}｜磯子から ${escapeHtml(ev.direction_from_isogo)}</p>
         <p class="source-row">${sourceLink(ev.source_title||'公式情報',ev.source_url||ev.official_url,'source-inline')} <span>${escapeHtml(ev.source_note||'年度ごとに要確認')}</span></p>
         <p class="count-line">候補 ${candidates.length}件（直接ソース ${direct} / 眺望ソース ${indirect}）</p>

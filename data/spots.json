@@ -203,18 +203,18 @@
   },
   {
     "id": "okamura-3-4-park",
-    "name": "岡村三丁目第四公園",
+    "name": "岡村三丁目第四公園・東側道路沿い",
     "lat": 35.421,
     "lng": 139.6135,
-    "pin_accuracy": "exact",
-    "category": "公園/高台",
+    "pin_accuracy": "area",
+    "category": "公園周辺/高台",
     "confidence": "possible",
     "visible_events": [
       "yokohama-night-flowers",
       "minatomirai-smart-festival"
     ],
-    "view_direction": "北東〜東",
-    "visibility_note": "磯子区の夜景スポットとして紹介あり。北東方面の高く上がる花火は見える可能性があるが、花火実績は要検証。",
+    "view_direction": "東〜北東",
+    "visibility_note": "夜景資料では公園内は建物に挟まれ眺望が限られ、東側道路沿いから本牧・ベイブリッジ方面に視界が開くとされています。花火の直接目撃情報ではないため、周辺建物・樹木を含む実際の見え方は要確認。",
     "kid_friendly": "medium",
     "stroller": "坂あり",
     "toilet": "unknown",
@@ -239,19 +239,19 @@
     "event_evidence": {
       "yokohama-night-flowers": {
         "support_level": "indirect_view_axis",
-        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
-        "source_title": "神奈川県横浜市磯子区の夜景 (岡村三丁目第四公園)",
+        "summary": "夜景資料は公園内の眺望が限られ、道路を挟んだ東側から本牧・横浜ベイブリッジ方面へ視界が開けると記載。花火の直接目撃情報ではなく、見え方は要現地確認。",
+        "source_title": "岡村三丁目第四公園の夜景 - こよなく夜景を愛する人へ",
         "source_url": "https://yakei.jp/japan/spot.php?i=takigashira",
         "source_type": "night_view_site",
-        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+        "note": "2018年更新の夜景資料。花火の直接目撃報告ではない。公園内と東側道路沿いの眺望を区別し、住宅前への滞留や道路上での観覧を促さない。実際の視界・通行可否・周辺ルールは未確認。"
       },
       "minatomirai-smart-festival": {
         "support_level": "indirect_view_axis",
-        "summary": "眺望/夜景スポット情報を根拠に「見える可能性」として扱う。",
-        "source_title": "神奈川県横浜市磯子区の夜景 (岡村三丁目第四公園)",
+        "summary": "夜景資料は公園内の眺望が限られ、道路を挟んだ東側から本牧・横浜ベイブリッジ方面へ視界が開けると記載。花火の直接目撃情報ではなく、見え方は要現地確認。",
+        "source_title": "岡村三丁目第四公園の夜景 - こよなく夜景を愛する人へ",
         "source_url": "https://yakei.jp/japan/spot.php?i=takigashira",
         "source_type": "night_view_site",
-        "note": "花火を直接見たソースではなく、眺望・夜景・場所情報からの候補。現地検証が必要。"
+        "note": "2018年更新の夜景資料。花火の直接目撃報告ではない。公園内と東側道路沿いの眺望を区別し、住宅前への滞留や道路上での観覧を促さない。実際の視界・通行可否・周辺ルールは未確認。"
       }
     },
     "elevation_m": 45.8,
